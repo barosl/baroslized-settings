@@ -1,0 +1,13 @@
+[alias]
+	ci = commit
+	st = status
+	co = checkout
+	br = branch
+	desc = describe
+
+[user]
+	name = Barosl LEE
+	email = git@barosl.com
+
+[core]
+	pager =

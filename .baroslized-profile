@@ -1,0 +1,49 @@
+######################################################################
+# baroslized ~/.profile
+# last modified: 2008-08-12 16:09:28
+######################################################################
+
+# set PATH
+export PATH='/home/barosl/box/.sys/home/.bin':"$PATH"
+export PATH="$PATH":'/home/barosl/.sdk/open2x/gcc-4.1.1-glibc-2.3.6/bin'
+export PATH="$PATH":'/home/barosl/.sdk/mipsel-linux-uclibc/usr/bin'
+export PATH="$PATH":'/home/barosl/.sdk/mingw32ce/bin'
+export PATH="$PATH":'/home/barosl/.sdk/android-sdk-linux_x86/tools':'/home/barosl/.sdk/android-sdk-linux_x86/platform-tools'
+export PATH="$PATH":'/home/barosl/.sdk/android-ndk-1.6_r1/build/prebuilt/linux-x86/arm-eabi-4.2.1/bin'
+export PATH="$PATH":'/home/barosl/.sdk/eclipse'
+export PATH="$PATH":'/home/barosl/.sdk/arm-linux-4.1.1/bin'
+export PATH="$PATH":'/home/barosl/.sdk/gcc-4.2.4-glibc-2.7-eabi/bin'
+export PATH="$PATH":'/home/barosl/.sdk/arm-2010.09/bin'
+#export PATH='/scratchbox/compilers/cs2005q3.2-glibc2.5-arm/bin':"$PATH"
+#export PATH="$PATH":'/home/barosl/work/prog/flex3/bin':'/home/barosl/work/prog/google_appengine'
+export ORACLE_HOME='/home/barosl/.app/oracle-xe-client'
+export PATH="$PATH":'/home/barosl/.app/oracle-xe-client/bin'
+
+### baroslized environment variables ###
+
+# for unzip
+#export UNZIP='-O cp949'
+#export ZIPINFO='-O cp949'
+
+# default programs
+export BROWSER='google-chrome'
+export EDITOR='vim'
+
+# input method settings
+#export XMODIFIERS='@im=SCIM'
+#export GTK_IM_MODULE='xim' # scim-bridge
+#export QT_IM_MODULE='xim'
+
+# for compiz
+#export SKIP_CHECKS='yes'
+
+#3#export LD_LIBRARY_PATH='/usr/local/lib'
+#3#export REGISTRY=$HOME'/.mplayer/registry'
+
+# for FreeNX
+export ESPEAKER=127.0.0.1:$((`echo $DISPLAY | cut -d: -f2 | cut -d. -f1`+7000))
+
+# for make
+export MAKEFLAGS='-j2'
+
+# EndOfFile /* vim: set ft=sh: */

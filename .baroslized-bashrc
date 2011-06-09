@@ -1,0 +1,88 @@
+######################################################################
+# baroslized ~/.bashrc
+# last modified: 2008-08-12 16:09:36
+######################################################################
+
+### language settings ###
+#export LANG='ko_KR.UTF-8'
+
+### aliases ###
+
+alias v='vim'
+alias sc='screen'
+alias la='ls -a'
+alias ll='ls -l'
+alias lla='ls -al'
+alias lh='ls -lh'
+alias l1='ls -1'
+alias lsd='ls -ld'
+alias py='python'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mp='mplayer'
+alias g='grep --color'
+alias p='ps aux'
+alias k='kill'
+alias ka='killall'
+alias e='leafpad'
+alias f='find -iname '
+if [ "$DISPLAY" ]; then
+	alias v='gvim'
+	alias gmp='gmplayer'
+	alias ff='firefox'
+	alias rd='rdesktop -k ko -g 1024x768 -r sound:local'
+	alias kq='konqueror'
+	alias nt='nautilus --no-desktop'
+	alias smp='smplayer'
+fi
+
+export LD_LIBRARY_PATH='/home/barosl/box/.sys/home/.lib'
+
+### TIP Exit Status in prompt ###
+# got from http://gentoo-wiki.com/TIP_Exit_Status_in_prompt
+
+COLOR_RED="\[\e[31;22m\]"
+COLOR_GREEN="\[\e[32;22m\]"
+COLOR_YELLOW="\[\e[33;22m\]"
+COLOR_BLUE="\[\e[34;22m\]"
+COLOR_MAGENTA="\[\e[35;22m\]"
+COLOR_CYAN="\[\e[36;22m\]"
+
+COLOR_RED_BOLD="\[\e[31;1m\]"
+COLOR_GREEN_BOLD="\[\e[32;1m\]"
+COLOR_YELLOW_BOLD="\[\e[33;1m\]"
+COLOR_BLUE_BOLD="\[\e[34;1m\]"
+COLOR_MAGENTA_BOLD="\[\e[35;1m\]"
+COLOR_CYAN_BOLD="\[\e[36;1m\]"
+
+# i removed "\]" of the next line.
+#COLOR_NONE="\[\e[0m\]"
+COLOR_NONE="\[\e[0m"
+
+promptFunc()
+{
+	PREV_RET_VAL=$?;
+
+	PS1=""
+
+#3#	if test `whoami` != "root"
+	if [[ ${EUID} != 0 ]]
+	then PS1="${PS1}${COLOR_GREEN_BOLD}\u${COLOR_GREEN}@\h ${COLOR_BLUE_BOLD}\w"
+	else PS1="${PS1}${COLOR_RED_BOLD}\h ${COLOR_BLUE_BOLD}\W"
+	fi
+
+	if test $PREV_RET_VAL -eq 0
+	then PS1="${PS1} ${COLOR_BLUE_BOLD}\\$ ${COLOR_NONE}"
+	else PS1="${PS1} ${COLOR_RED_BOLD}[${PREV_RET_VAL}] \\$ ${COLOR_NONE}"
+	fi
+
+	case $TERM in
+		xterm*) echo -ne "\e]0;${USER}@${HOSTNAME} ${PWD/$HOME/~}\007" ;;
+		*) ;;
+	esac
+}
+
+PROMPT_COMMAND=promptFunc
+
+# EndOfFile

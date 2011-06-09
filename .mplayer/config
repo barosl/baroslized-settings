@@ -1,0 +1,12 @@
+# Write your default config options here!
+
+font=BaroslAquaEJ
+subcp=cp949
+subfont-text-scale=3
+subfont-outline=3
+slang=ko
+
+ao=pulse
+framedrop=yes
+
+demuxer=lavf

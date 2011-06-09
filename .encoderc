@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+cfg = {}
+
+cfg['debug'] = False
+
+cfg['out_dir'] = '/home/barosl/encoded'
+cfg['threads'] = 3
+cfg['use_mencoder'] = False
+cfg['keep_unfinished'] = False
+
+cfg['v_w'] = 800
+cfg['v_h'] = 480
+cfg['v_br'] = 500
+
+cfg['a_br'] = 192
+cfg['a_norm'] = False
+cfg['a_lang'] = ['jpn', 'eng', 'kor']
+cfg['a_id'] = -1
+
+cfg['s_enabled'] = False
+cfg['s_enc'] = 'cp949'
+cfg['s_font'] = 'BaroslAquaEJ'
+cfg['s_size'] = 4
+cfg['s_outline'] = 3
+cfg['s_lang'] = ['kor', 'eng', 'jpn']
+cfg['s_id'] = -1

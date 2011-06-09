@@ -1,0 +1,16 @@
+# $Id: .screenrc 86 2005-12-20 04:55:09Z barosl $
+
+startup_message off
+autodetach on
+defscrollback 1000
+vbell off
+
+caption always "%3n %t%? @%u%?%? [%h]%?%=%c"
+hardstatus alwayslastline "%{k+b d} %H %{wb} %c | %Y-%m-%d %{wr} Load: %l %{wk} %w "
+
+#defutf8 on
+
+#bind h focus left
+#bind j focus down
+#bind k focus up
+#bind l focus right
