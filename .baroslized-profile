@@ -44,6 +44,6 @@ export EDITOR='vim'
 export ESPEAKER=127.0.0.1:$((`echo $DISPLAY | cut -d: -f2 | cut -d. -f1`+7000))
 
 # for make
-export MAKEFLAGS='-j2'
+export MAKEFLAGS='-j5'
 
 # EndOfFile /* vim: set ft=sh: */
