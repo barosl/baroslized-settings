@@ -6,6 +6,7 @@ cfg = {}
 cfg['debug'] = False
 
 cfg['out_dir'] = '/home/barosl/encoded'
+cfg['tmp_dir'] = '/home/barosl/encoded/.tmp'
 cfg['threads'] = 5
 cfg['use_mencoder'] = False
 cfg['keep_unfinished'] = False
