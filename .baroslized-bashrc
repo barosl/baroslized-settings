@@ -27,6 +27,7 @@ alias k='kill'
 alias ka='killall'
 alias e='leafpad'
 alias f='find -iname '
+alias mk='make'
 if [ "$DISPLAY" ]; then
 	alias v='gvim'
 	alias gmp='gmplayer'
@@ -35,8 +36,10 @@ if [ "$DISPLAY" ]; then
 	alias kq='konqueror'
 	alias nt='nautilus --no-desktop'
 	alias smp='smplayer'
+	alias go='gnome-open'
 fi
 
+# Library path: must not be in ~/.profile, it will be overwritten!
 export LD_LIBRARY_PATH='/home/barosl/box/.sys/home/.lib'
 
 ### TIP Exit Status in prompt ###
