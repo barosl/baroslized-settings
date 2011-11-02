@@ -10,7 +10,7 @@ export PATH="$PATH":'/home/barosl/.sdk/mipsel-linux-uclibc/usr/bin'
 export PATH="$PATH":'/home/barosl/.sdk/mingw32ce/bin'
 export PATH="$PATH":'/home/barosl/.sdk/android-sdk-linux_x86/tools':'/home/barosl/.sdk/android-sdk-linux_x86/platform-tools'
 export PATH="$PATH":'/home/barosl/.sdk/android-ndk-1.6_r1/build/prebuilt/linux-x86/arm-eabi-4.2.1/bin'
-export PATH="$PATH":'/home/barosl/.sdk/eclipse'
+export PATH="$PATH":'/home/barosl/.app/eclipse'
 export PATH="$PATH":'/home/barosl/.sdk/arm-linux-4.1.1/bin'
 export PATH="$PATH":'/home/barosl/.sdk/gcc-4.2.4-glibc-2.7-eabi/bin'
 export PATH="$PATH":'/home/barosl/.sdk/arm-2010.09/bin'
@@ -18,12 +18,13 @@ export PATH="$PATH":'/home/barosl/.sdk/arm-2010.09/bin'
 #export PATH="$PATH":'/home/barosl/work/prog/flex3/bin':'/home/barosl/work/prog/google_appengine'
 export ORACLE_HOME='/home/barosl/.app/oracle-xe-client'
 export PATH="$PATH":'/home/barosl/.app/oracle-xe-client/bin'
+export PATH="$PATH":'/home/barosl/.app/pypy/bin'
 
 ### baroslized environment variables ###
 
 # for unzip
-#export UNZIP='-O cp949'
-#export ZIPINFO='-O cp949'
+export UNZIP='-O cp949'
+export ZIPINFO='-O cp949'
 
 # default programs
 export BROWSER='google-chrome'
@@ -31,8 +32,8 @@ export EDITOR='vim'
 
 # input method settings
 #export XMODIFIERS='@im=SCIM'
-#export GTK_IM_MODULE='xim' # scim-bridge
-#export QT_IM_MODULE='xim'
+export GTK_IM_MODULE='scim-bridge' # without this line, GNOME Terminal freezes for a while after running some Qt-based program (e.g., kwrite)
+export QT_IM_MODULE='scim-bridge'
 
 # for compiz
 #export SKIP_CHECKS='yes'
@@ -45,5 +46,8 @@ export ESPEAKER=127.0.0.1:$((`echo $DISPLAY | cut -d: -f2 | cut -d. -f1`+7000))
 
 # for make
 export MAKEFLAGS='-j5'
+
+# Java classpath
+export CLASSPATH='.:/usr/share/java/qtjambi-4.7.4.jar'
 
 # EndOfFile /* vim: set ft=sh: */
