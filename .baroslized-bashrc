@@ -42,6 +42,10 @@ fi
 # Library path: must not be in ~/.profile, it will be overwritten!
 export LD_LIBRARY_PATH='/home/barosl/box/.sys/home/.lib'
 
+# Workaround for GNOME Terminal not respecting "show menubar" option
+# Buggy Ubuntu makes me crazy...
+unset UBUNTU_MENUPROXY
+
 ### TIP Exit Status in prompt ###
 # got from http://gentoo-wiki.com/TIP_Exit_Status_in_prompt
 

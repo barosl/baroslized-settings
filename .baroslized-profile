@@ -19,6 +19,7 @@ export PATH="$PATH":'/home/barosl/.sdk/arm-2010.09/bin'
 export ORACLE_HOME='/home/barosl/.app/oracle-xe-client'
 export PATH="$PATH":'/home/barosl/.app/oracle-xe-client/bin'
 export PATH="$PATH":'/home/barosl/.app/pypy/bin'
+export PATH="$PATH":'/home/barosl/.app/altera/11.0sp1/quartus/bin'
 
 ### baroslized environment variables ###
 
@@ -49,5 +50,8 @@ export MAKEFLAGS='-j5'
 
 # Java classpath
 export CLASSPATH='.:/usr/share/java/qtjambi-4.7.4.jar'
+
+# Ubuntu-specific settings
+#export LIBOVERLAY_SCROLLBAR=0
 
 # EndOfFile /* vim: set ft=sh: */
