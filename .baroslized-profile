@@ -55,4 +55,7 @@ export CLASSPATH='.:/usr/share/java/qtjambi-4.7.4.jar'
 # Ubuntu-specific settings
 #export LIBOVERLAY_SCROLLBAR=0
 
+# Restoring the historical umask
+umask 022
+
 # EndOfFile /* vim: set ft=sh: */
