@@ -4,7 +4,7 @@
 ######################################################################
 
 # set PATH
-export PATH='/home/barosl/box/.sys/home/.bin':"$PATH"
+export PATH='/home/barosl/.bin':"$PATH"
 export PATH="$PATH":'/home/barosl/.sdk/open2x/gcc-4.1.1-glibc-2.3.6/bin'
 export PATH="$PATH":'/home/barosl/.sdk/mipsel-linux-uclibc/usr/bin'
 export PATH="$PATH":'/home/barosl/.sdk/mingw32ce/bin'
