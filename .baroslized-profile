@@ -21,6 +21,7 @@ export PATH="$PATH":'/home/barosl/.app/oracle-xe-client/bin'
 export PATH="$PATH":'/home/barosl/.app/pypy/bin'
 export PATH="$PATH":'/home/barosl/.app/altera/11.0sp1/quartus/bin'
 export PATH="$PATH":'/home/barosl/.app/altera/11.0sp1/modelsim_ase/linuxaloem'
+export PATH='/home/barosl/.app/blender-2.61-linux-glibc27-x86_64':"$PATH"
 
 ### baroslized environment variables ###
 
