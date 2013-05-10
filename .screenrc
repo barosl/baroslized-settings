@@ -14,3 +14,5 @@ hardstatus alwayslastline "%{k+b d} %H %{wb} %c | %Y-%m-%d %{wr} Load: %l %{wk} 
 #bind j focus down
 #bind k focus up
 #bind l focus right
+
+altscreen on
