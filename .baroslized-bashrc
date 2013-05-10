@@ -42,6 +42,10 @@ fi
 # Library path: must not be in ~/.profile, it will be overwritten!
 export LD_LIBRARY_PATH='/home/barosl/box/.sys/home/.lib'
 
+# Increase the number of commands to save in the history list
+HISTSIZE=10000
+HISTFILESIZE=20000
+
 ### TIP Exit Status in prompt ###
 # got from http://gentoo-wiki.com/TIP_Exit_Status_in_prompt
 
