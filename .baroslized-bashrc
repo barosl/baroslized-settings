@@ -25,7 +25,7 @@ alias g='grep --color'
 alias p='ps aux'
 alias k='kill'
 alias ka='killall'
-alias e='leafpad'
+alias e='gedit'
 alias f='find -iname '
 alias mk='make'
 if [ "$DISPLAY" ]; then
