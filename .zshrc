@@ -54,6 +54,7 @@ setopt GLOB_DOTS EXTENDED_GLOB AUTO_NAME_DIRS
 setopt AUTO_REMOVE_SLASH AUTO_PARAM_KEYS
 setopt PROMPT_SUBST
 unsetopt LIST_AMBIGUOUS
+unsetopt HUP
 
 alias -g ...=../..
 alias -g ....=../../..
