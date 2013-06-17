@@ -75,7 +75,8 @@ alias 8='cd -8'
 alias 9='cd -9'
 alias d='dirs -v | head -n10'
 
-alias jobs='jobs -l'
+alias j='jobs -l'
+alias h='history -d'
 
 autoload -U zmv
 alias zmv='noglob zmv -Wn'
