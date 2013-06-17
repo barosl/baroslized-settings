@@ -136,7 +136,7 @@ keys=(
 	S-Right "$terminfo[kRIT]"
 	S-Tab '^[[Z'
 
-	# Replacements for tmux
+	# Manual configuration for tmux
 	C-Up '^[[1;5A'
 	C-Down '^[[1;5B'
 	C-Left '^[[1;5D'
