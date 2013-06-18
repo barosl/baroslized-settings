@@ -270,10 +270,8 @@ expand-or-complete-with-dots() {
 zle -N expand-or-complete-with-dots
 bindkey "$keys[Tab]" expand-or-complete-with-dots
 
-top() {
-	env top
-	tput rmkx
-}
+zle-line-init() { echoti rmkx }
+zle -N zle-line-init
 
 [[ "$TERM" == 'xterm' ]] && TERM=xterm-256color
 
