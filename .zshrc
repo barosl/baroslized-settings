@@ -270,6 +270,11 @@ expand-or-complete-with-dots() {
 zle -N expand-or-complete-with-dots
 bindkey "$keys[Tab]" expand-or-complete-with-dots
 
+top() {
+	env top
+	tput rmkx
+}
+
 [[ "$TERM" == 'xterm' ]] && TERM=xterm-256color
 
 alias mv='nocorrect mv -i'
