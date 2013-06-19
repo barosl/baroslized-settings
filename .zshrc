@@ -249,8 +249,6 @@ zman() {
 	PAGER="less '+/^       "$1"'" man zshall
 }
 
-bindkey "$keys[Up]" up-line-or-history
-bindkey "$keys[Down]" down-line-or-history
 bindkey "$keys[PageUp]" history-beginning-search-backward
 bindkey "$keys[PageDown]" history-beginning-search-forward
 bindkey "$keys[C-Up]" history-beginning-search-backward
