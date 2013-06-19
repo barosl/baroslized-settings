@@ -133,13 +133,6 @@ keys=(
 	Tab "$terminfo[ht]"
 	Escape '^['
 
-	# Fix invalid arrow keys used by $terminfo
-	Up '^[[A'
-	Down '^[[B'
-	Left '^[[D'
-	Right '^[[C'
-	Enter '^M'
-
 	# Modifier keys
 	C-Up "$terminfo[kUP5]"
 	C-Down "$terminfo[kDN5]"
@@ -158,23 +151,50 @@ keys=(
 	S-Left "$terminfo[kLFT]"
 	S-Right "$terminfo[kRIT]"
 	S-Tab '^[[Z'
-
-	# Alternative control sequences for PuTTY
-	Home2 '^[[1~'
-	End2 '^[[4~'
-	C-Up2 '^[OA'
-	C-Down2 '^[OB'
-	C-Left2 '^[OD'
-	C-Right2 '^[OC'
-	M-Up2 '^[^[[A'
-	M-Down2 '^[^[[B'
-	M-Left2 '^[^[[D'
-	M-Right2 '^[^[[C'
-	M-Delete2 '^[^[[3~'
-	M-Enter2 '^[^M'
 )
 
-# Manual configuration for tmux
+APP_KEY_MODE=0
+
+if (( !${+terminfo[rmkx]} )); then
+	APP_KEY_MODE=0
+fi
+
+# Use raw mode key sequences rather than application mode key sequences
+if (( !$APP_KEY_MODE )); then
+	keys[Up]='^[[A'
+	keys[Down]='^[[B'
+	keys[Left]='^[[D'
+	keys[Right]='^[[C'
+	keys[Enter]='^M'
+fi
+
+# Alternative control sequences used by PuTTY
+keys[Home2]='^[[1~'
+keys[End2]='^[[4~'
+keys[M-Delete2]='^[^[[3~'
+keys[M-Enter2]='^[^M'
+
+if (( !$APP_KEY_MODE )); then
+	keys[C-Up2]='^[OA'
+	keys[C-Down2]='^[OB'
+	keys[C-Left2]='^[OD'
+	keys[C-Right2]='^[OC'
+	keys[M-Up2]='^[^[[A'
+	keys[M-Down2]='^[^[[B'
+	keys[M-Left2]='^[^[[D'
+	keys[M-Right2]='^[^[[C'
+else
+	keys[C-Up2]='^[[A'
+	keys[C-Down2]='^[[B'
+	keys[C-Left2]='^[[D'
+	keys[C-Right2]='^[[C'
+	keys[M-Up2]='^[^[OA'
+	keys[M-Down2]='^[^[OB'
+	keys[M-Left2]='^[^[OD'
+	keys[M-Right2]='^[^[OC'
+fi
+
+# Manual configuration for tmux and screen, which have some missing terminfo entries
 if [[ -z "$keys[C-Up]" ]]; then
 	keys[C-Up]='^[[1;5A'
 	keys[C-Down]='^[[1;5B'
@@ -185,6 +205,10 @@ if [[ -z "$keys[C-Up]" ]]; then
 	keys[S-Down]='^[[1;2B'
 	keys[S-Left]='^[[1;2D'
 	keys[S-Right]='^[[1;2C'
+
+	if (( $APP_KEY_MODE )); then
+		keys[Enter]='^[OM'
+	fi
 fi
 
 bindkey -e
@@ -290,8 +314,17 @@ expand-or-complete-with-dots() {
 zle -N expand-or-complete-with-dots
 bindkey "$keys[Tab]" expand-or-complete-with-dots
 
-zle-line-init() { echoti rmkx }
-zle -N zle-line-init
+if (( ${+terminfo[rmkx]} )); then
+	if (( !$APP_KEY_MODE )); then
+		zle-line-init() { echoti rmkx }
+		zle -N zle-line-init
+	else
+		zle-line-init() { echoti smkx }
+		zle-line-finish() { echoti rmkx }
+		zle -N zle-line-init
+		zle -N zle-line-finish
+	fi
+fi
 
 bindkey '^D' delete-char
 
