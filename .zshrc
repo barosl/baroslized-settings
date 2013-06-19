@@ -210,13 +210,7 @@ bindkey "$keys[C-Right2]" forward-word
 bindkey "$keys[M-Enter2]" self-insert-unmeta
 bindkey "$keys[M-Delete2]" kill-word
 
-self-insert-without-auto-suffix-removal() {
-	LBUFFER="$LBUFFER$KEYS"
-}
-
-zle -N self-insert-without-auto-suffix-removal
-bindkey '|' self-insert-without-auto-suffix-removal
-bindkey '&' self-insert-without-auto-suffix-removal
+ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;' # excludes '&|'
 
 autoload -U edit-command-line
 zle -N edit-command-line
