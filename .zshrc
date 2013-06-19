@@ -2,11 +2,10 @@
 
 autoload -U compinit && compinit
 zstyle -e ':completion:*' completer '
-	local cur_try="$HISTNO:$CURSOR:$BUFFER"
-
 	local -a default_reply
 	default_reply=(_expand _complete _approximate)
 
+	local cur_try="$HISTNO:$CURSOR:$BUFFER"
 	if [[ "$_comp_last_try" != "$cur_try" ]]; then
 		_comp_last_try="$cur_try"
 
@@ -27,6 +26,14 @@ zstyle ':completion:*' list-prompt '%SListing at %p (%l)%s'
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
 zstyle ':completion:*' select-prompt '%SSeleting at %p (%m)%s'
 zstyle ':completion:*' verbose true
+zstyle -e ':completion:*:approximate:*' max-errors '
+	local default_max_errors=2
+
+	local max_errors=$(( ($#PREFIX+$#SUFFIX)/3 ))
+
+	if (( $max_errors < $default_max_errors )) max_errors=$default_max_errors
+	reply=($max_errors numeric)
+'
 
 zstyle ':completion:*:*:*:*:processes' command 'ps -u `whoami` -o pid,user,args -ww'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
