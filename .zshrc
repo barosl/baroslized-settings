@@ -286,6 +286,8 @@ bindkey "$keys[Tab]" expand-or-complete-with-dots
 zle-line-init() { echoti rmkx }
 zle -N zle-line-init
 
+bindkey '^D' delete-char
+
 [[ "$TERM" == 'xterm' ]] && TERM=xterm-256color
 
 alias mv='nocorrect mv -i'
