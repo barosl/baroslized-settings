@@ -317,5 +317,6 @@ alias ka='killall'
 alias mk='make'
 alias f='find'
 alias s='sudo su -'
+alias ht='htop -d10 -sPERCENT_CPU'
 
 DEFAULT_USER='barosl'
