@@ -159,17 +159,6 @@ keys=(
 	S-Right "$terminfo[kRIT]"
 	S-Tab '^[[Z'
 
-	# Manual configuration for tmux
-	C-Up '^[[1;5A'
-	C-Down '^[[1;5B'
-	C-Left '^[[1;5D'
-	C-Right '^[[1;5C'
-	M-Delete '^[[3;3~'
-	S-Up '^[[1;2A'
-	S-Down '^[[1;2B'
-	S-Left '^[[1;2D'
-	S-Right '^[[1;2C'
-
 	# Alternative control sequences for PuTTY
 	Home2 '^[[1~'
 	End2 '^[[4~'
@@ -184,6 +173,19 @@ keys=(
 	M-Delete2 '^[^[[3~'
 	M-Enter2 '^[^M'
 )
+
+# Manual configuration for tmux
+if [[ -z "$keys[C-Up]" ]]; then
+	keys[C-Up]='^[[1;5A'
+	keys[C-Down]='^[[1;5B'
+	keys[C-Left]='^[[1;5D'
+	keys[C-Right]='^[[1;5C'
+	keys[M-Delete]='^[[3;3~'
+	keys[S-Up]='^[[1;2A'
+	keys[S-Down]='^[[1;2B'
+	keys[S-Left]='^[[1;2D'
+	keys[S-Right]='^[[1;2C'
+fi
 
 bindkey -e
 
