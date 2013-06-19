@@ -322,8 +322,10 @@ fi
 bindkey '^D' delete-char
 
 rationalize-dots() {
-	if [[ "$LBUFFER" == *.. ]]; then
-		LBUFFER+=/..
+	if [[ "$LBUFFER" == *... ]]; then
+		LBUFFER="${LBUFFER%.}/.$KEYS/"
+	elif [[ "$LBUFFER" == */. ]]; then
+		LBUFFER+=$KEYS/
 	else
 		LBUFFER+=$KEYS
 	fi
