@@ -212,6 +212,9 @@ bindkey "$keys[M-Delete2]" kill-word
 
 ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;' # excludes '&|'
 
+accept-line-without-suffix-removal() { zle auto-suffix-retain; zle .accept-line }
+zle -N accept-line accept-line-without-suffix-removal
+
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^[^E' edit-command-line
