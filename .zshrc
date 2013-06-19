@@ -1,7 +1,20 @@
 ### baroslized settings ###
 
 autoload -U compinit && compinit
-zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle -e ':completion:*' completer '
+	local cur_try="$HISTNO:$CURSOR:$BUFFER"
+
+	local -a default_reply
+	default_reply=(_expand _complete _correct _approximate)
+
+	if [[ "$_comp_last_try" != "$cur_try" ]]; then
+		_comp_last_try="$cur_try"
+
+		reply=($default_reply)
+	else
+		reply=($default_reply)
+	fi
+'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:options' auto-description '%d'
 zstyle ':completion:*:descriptions' format '%B%F{yellow}-- %d --%f%b'
