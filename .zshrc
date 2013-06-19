@@ -79,11 +79,6 @@ unsetopt HUP
 setopt CASE_GLOB
 unsetopt CASE_MATCH
 
-alias -g ...=../..
-alias -g ....=../../..
-alias -g .....=../../../..
-alias -g ......=../../../../..
-alias -g .......=../../../../../..
 alias -- -='cd -1'
 alias _='sudo'
 
@@ -325,6 +320,17 @@ if (( ${+terminfo[rmkx]} )); then
 fi
 
 bindkey '^D' delete-char
+
+rationalize-dots() {
+	if [[ "$LBUFFER" == *.. ]]; then
+		LBUFFER+=/..
+	else
+		LBUFFER+=$KEYS
+	fi
+}
+
+zle -N rationalize-dots
+bindkey . rationalize-dots
 
 [[ "$TERM" == 'xterm' ]] && TERM=xterm-256color
 
