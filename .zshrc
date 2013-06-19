@@ -5,7 +5,7 @@ zstyle -e ':completion:*' completer '
 	local cur_try="$HISTNO:$CURSOR:$BUFFER"
 
 	local -a default_reply
-	default_reply=(_expand _complete _correct _approximate)
+	default_reply=(_expand _complete _approximate)
 
 	if [[ "$_comp_last_try" != "$cur_try" ]]; then
 		_comp_last_try="$cur_try"
