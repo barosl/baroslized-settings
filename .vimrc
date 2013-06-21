@@ -436,5 +436,52 @@ set nosmd
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tab page settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set <M-n>=n
+set <M-w>=w
+set <M-q>=q
+set <M-1>=1
+set <M-2>=2
+set <M-3>=3
+set <M-4>=4
+set <M-5>=5
+set <M-6>=6
+set <M-7>=7
+set <M-8>=8
+set <M-9>=9
+set <M-0>=0
+
+noremap <M-n> :tabe<CR>
+noremap <M-w> :q<CR>
+noremap <M-q> :qa<CR>
+noremap <M-PageDown> :tabn<CR>
+noremap <M-PageUp> :tabp<CR>
+
+noremap <C-o> :tabe<CR>
+noremap <C-x> :q<CR>
+noremap <C-e> :qa<CR>
+noremap <C-n> :tabn<CR>
+noremap <C-p> :tabp<CR>
+
+noremap <M-1> 1gt
+noremap <M-2> 2gt
+noremap <M-3> 3gt
+noremap <M-4> 4gt
+noremap <M-5> 5gt
+noremap <M-6> 6gt
+noremap <M-7> 7gt
+noremap <M-8> 8gt
+noremap <M-9> 9gt
+noremap <M-0> 10gt
+
+if has('gui_running')
+	noremap <C-tab> :tabn<CR>
+	noremap <C-S-tab> :tabp<CR>
+endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
