@@ -413,6 +413,7 @@ Bundle 'gmarik/vundle'
 
 " List of repositories
 Bundle 'zeis/vim-kolor'
+Bundle 'Lokaltog/powerline'
 Bundle 'tpope/vim-surround'
 Bundle 'tomtom/tcomment_vim'
 
@@ -424,6 +425,14 @@ filet plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 colo kolor
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Powerline support
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set nosmd
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
