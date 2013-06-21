@@ -504,5 +504,21 @@ let g:haskell_indent_if = 4
 let g:haskell_indent_case = 4
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+filet off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+" List of repositories
+Bundle 'zeis/vim-kolor'
+Bundle 'tpope/vim-surround'
+Bundle 'tomtom/tcomment_vim'
+
+filet plugin indent on
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
