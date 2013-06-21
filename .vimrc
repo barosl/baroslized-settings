@@ -483,5 +483,74 @@ endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Miscellaneous settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Shortcuts to stop the highlighting
+noremap <Leader><Leader> :noh<CR>
+if has('gui_running')
+	nnoremap <Esc> :noh<CR>
+endif
+
+" Adjust key bindings to the current wrap mode
+fu! UpdateWrap()
+	if &wrap
+		noremap <Up> gk
+		noremap <Down> gj
+		noremap <Home> g0
+		noremap <End> g$
+	else
+		sil! unm <Up>
+		sil! unm <Down>
+		sil! unm <Home>
+		sil! unm <End>
+	endif
+endfu
+
+fu! ToggleWrap()
+	set wrap!
+	call UpdateWrap()
+endf
+
+noremap <Leader>w :call ToggleWrap()<CR>
+
+call UpdateWrap()
+
+" Set working directory to the directory of the current file
+au BufEnter * sil! lcd %:p:h
+
+" Toggle space indentation mode
+fu! ToggleTab()
+	set et!
+
+	if &et
+		let s:size = str2nr(input("Input tab size: "))
+
+		let &ts = s:size
+		let &sw = s:size
+		let &sts = s:size
+	else
+		let &ts = 4
+		let &sw = 4
+		let &sts = 0
+	endif
+endf
+
+noremap <Leader>t :call ToggleTab()<CR>
+com! -nargs=* ToggleTab call ToggleTab(<f-args>)
+
+" Key bindings for insert mode
+inoremap <S-Tab> <C-o><<
+inoremap <C-\> <C-o>^
+
+" Highlight the cursor
+"set cul
+"set cuc
+
+" Folds are created automatically
+"set fdm=indent
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
