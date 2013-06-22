@@ -14,7 +14,5 @@ else
 	done
 
 	new=$base-`date +%m%d%H%M%S`
-	tmux new -d -s $new -t $base
-	[[ $? == 0 ]] || exit $?
-	tmux attach -t $new \; set -q destroy-unattached on
+	tmux new -d -s $new -t $base \; set -q destroy-unattached \; attach -t $new
 fi
