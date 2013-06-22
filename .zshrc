@@ -1,4 +1,4 @@
-### baroslized settings ###
+#!/usr/bin/env zsh
 
 autoload -U compinit && compinit
 zstyle -e ':completion:*' completer '
@@ -343,13 +343,16 @@ alias rm='nocorrect rm -i'
 alias mkdir='nocorrect mkdir'
 alias ls='ls --color=always'
 alias la='ls -a'
-alias grep='grep --color=always'
-alias less='less -R'
+alias g='grep --color=always'
+alias l='less -R'
+alias h='head'
+alias t='tail'
+alias c='cat'
 
-alias -g G='| grep'
-alias -g L='| less'
-alias -g H='| head'
-alias -g T='| tail'
+alias -g G='| g'
+alias -g L='| l'
+alias -g H='| h'
+alias -g T='| t'
 alias -g V='| v -'
 
 alias -s txt='v'
@@ -360,7 +363,6 @@ alias py='python'
 alias mp='mplayer'
 alias sc='screen'
 alias tm='tmux'
-alias e='gedit'
 alias p='ps -eo user,pid,ppid,%cpu,start,time,args --sort start_time'
 alias k='kill'
 alias ka='killall'
@@ -368,14 +370,10 @@ alias mk='make'
 alias f='find'
 alias s='sudo su -'
 alias ht='htop -d10 -sPERCENT_CPU'
-alias c='cat'
-alias h='head'
-alias t='tail'
-alias l='less'
-alias g='grep'
 
 if [[ -n "$DISPLAY" ]]; then
-	alias go='gnome-open'
+	alias e='gedit'
+	alias go='xdg-open'
 	alias rd='rdesktop -k ko -g 1024x768 -r sound:local'
 fi
 
