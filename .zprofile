@@ -7,12 +7,15 @@ bin_dirs=(
 
 path=(${(Oa)bin_dirs} $path)
 
-local app_dir=~/.app
-if [[ -d $app_dir ]]; then
-	for dir in $app_dir/*; do
+local -a app_dirs
+app_dirs=(~/.app/*(N/))
+for dir in $app_dirs; do
+	if [[ -d $dir/bin ]]; then
 		path+=$dir/bin
-	done
-fi
+	else
+		path+=$dir
+	fi
+done
 
 if [[ "$UID" != 0 ]]; then
 	umask 002
