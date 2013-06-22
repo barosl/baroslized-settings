@@ -78,6 +78,7 @@ unsetopt LIST_AMBIGUOUS
 unsetopt HUP
 setopt CASE_GLOB
 unsetopt CASE_MATCH
+unsetopt RM_STAR_SILENT
 
 alias -- -='cd -1'
 alias _='sudo'
