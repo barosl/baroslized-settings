@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [[ -n "$TMUX" ]]; then echo 'Already in tmux.'; exit 1; fi
+if [[ -z "$1" ]]; then echo 'Specify session name.'; exit 2; fi
+
+base="$1"
+data=`tmux ls 2>/dev/null`
+
+if [[ "`echo "$data" | grep "^$base" | wc -l`" == "0" ]]; then
+	tmux new -s $base
+else
+	for sess in `echo "$data" | grep "^$base-[0-9]\+" | grep -v '(attached)' | cut -d: -f 1`; do
+		tmux kill-session -t $sess
+	done
+
+	new=$base-`date +%m%d%H%M%S`
+	tmux new -d -s $new -t $base
+	err=$?; if [[ $err != 0 ]]; then exit $err; fi
+	tmux attach -t $new; err=$?
+	tmux kill-session -t $new 2>/dev/null
+	exit $err
+fi
