@@ -6,7 +6,7 @@ if [[ -z "$1" ]]; then echo 'Specify session name.'; exit 2; fi
 base="$1"
 data=`tmux ls 2>/dev/null`
 
-if [[ "`echo "$data" | grep "^$base" | wc -l`" == "0" ]]; then
+if [[ -z `echo "$data" | grep "^$base:"` ]]; then
 	tmux new -s $base
 else
 	for sess in `echo "$data" | grep "^$base-[0-9]\+" | grep -v '(attached)' | cut -d: -f 1`; do
