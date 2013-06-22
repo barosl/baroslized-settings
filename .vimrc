@@ -460,8 +460,8 @@ noremap <M-PageDown> :tabn<CR>
 noremap <M-PageUp> :tabp<CR>
 
 noremap <C-o> :tabe<CR>
-noremap <C-g> :q<CR>
-noremap <C-e> :qa<CR>
+noremap <C-e> :q<CR>
+noremap <C-g> :qa<CR>
 noremap <C-n> :tabn<CR>
 noremap <C-p> :tabp<CR>
 
