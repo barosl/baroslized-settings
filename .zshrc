@@ -84,6 +84,7 @@ unsetopt HUP
 setopt CASE_GLOB
 unsetopt CASE_MATCH
 unsetopt RM_STAR_SILENT
+setopt NOMATCH
 
 alias -- -='cd -1'
 alias _='sudo'
