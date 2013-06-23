@@ -550,6 +550,16 @@ inoremap <C-\> <C-o>^
 " Folds are created automatically
 "set fdm=indent
 
+" Persistent undo
+let s:undo_dir = s:home_dir.'/.vim/undo'
+if !isdirectory(s:undo_dir)
+	call mkdir(s:undo_dir, 'p')
+endif
+if isdirectory(s:undo_dir)
+	set udf
+	let &udir = s:undo_dir
+endif
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
