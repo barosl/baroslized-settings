@@ -53,7 +53,7 @@ precmd() {
 		prompt_fmt1=''
 		prompt_fmt2=';49'
 	else
-		prompt_fmt1='%{[38;5;236m%}%{[38;5;247;48;5;236m%}'
+		prompt_fmt1='%{[38;5;236;22m%}%{[38;5;247;48;5;236m%}'
 		prompt_fmt2=';48;5;236'
 	fi
 
@@ -62,8 +62,31 @@ precmd() {
 	else prompt_fmt3='%n@'; fi
 }
 
-PROMPT='%{[38;5;252;48;5;240m%} $prompt_fmt3%{[38;5;106;48;5;240;1m%}%m %{[38;5;240;48;5;31;22m%} %{[38;5;231;48;5;31;1m%}%~ %{[38;5;31;49;22m%} %{[m%}'
-RPROMPT='$prompt_fmt1$(exit_status)%{[38;5;254${prompt_fmt2}m%}%{[38;5;16;48;5;254m%} ⌚ %D{%H:%M:%S} %{[m%}'
+autoload -U vcs_info
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' formats ' %{[1m%}%b%{[22m%}' '%s'
+
+vcs_prompt() {
+	vcs_info
+
+	if [[ -n $vcs_info_msg_0_ ]]; then
+		if [[ $vcs_info_msg_1_ == 'git' && -n $(git status -s) ]]; then
+			local color_fg=94
+			local color_bg=214
+		else
+			local color_fg=22
+			local color_bg=148
+		fi
+
+		echo "%{[38;5;31;48;5;$color_bg;22m%} %F{$color_fg}$vcs_info_msg_0_%f %{[38;5;$color_bg;49;22m%}"
+	else
+		echo '%{[38;5;31;49;22m%}'
+	fi
+}
+
+PROMPT='%{[38;5;252;48;5;240m%} $prompt_fmt3%{[38;5;106;48;5;240;1m%}%m %{[38;5;240;48;5;31;22m%} %{[38;5;231;48;5;31;1m%}%~ $(vcs_prompt)%{[m%} '
+RPROMPT='$prompt_fmt1$(exit_status)%{[38;5;254${prompt_fmt2};22m%}%{[38;5;16;48;5;254m%} ⌚ %D{%H:%M:%S} %{[m%}'
 
 HISTSIZE=20000
 HISTFILE=~/.zsh_history
