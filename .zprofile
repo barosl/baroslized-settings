@@ -5,7 +5,7 @@ bin_dirs=(
 	~/.bin
 )
 
-path=(${(Oa)bin_dirs} $path)
+path=($bin_dirs $path)
 
 local -a app_dirs
 app_dirs=(~/.app/*(N/))
