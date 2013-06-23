@@ -60,6 +60,9 @@ precmd() {
 	if [[ "$USER" == "$DEFAULT_USER" ]]; then prompt_fmt3=''
 	elif (( $EUID == 0 )); then prompt_fmt3='%F{166}%n@%f';
 	else prompt_fmt3='%n@'; fi
+
+	if [[ -z $SSH_CLIENT && $USER == $DEFAULT_USER ]]; then prompt_fmt4=''
+	else prompt_fmt4='%{[38;5;106;48;5;240;1m%}%m'; fi
 }
 
 autoload -U vcs_info
@@ -85,7 +88,7 @@ vcs_prompt() {
 	fi
 }
 
-PROMPT='%{[38;5;252;48;5;240m%} $prompt_fmt3%{[38;5;106;48;5;240;1m%}%m %{[38;5;240;48;5;31;22m%} %{[38;5;231;48;5;31;1m%}%~ $(vcs_prompt)%{[m%} '
+PROMPT='%{[38;5;252;48;5;240m%} $prompt_fmt3$prompt_fmt4 %{[38;5;240;48;5;31;22m%} %{[38;5;231;48;5;31;1m%}%~ $(vcs_prompt)%{[m%} '
 RPROMPT='$prompt_fmt1$(exit_status)%{[38;5;254${prompt_fmt2};22m%}%{[38;5;16;48;5;254m%} ⌚ %D{%H:%M:%S} %{[m%}'
 
 HISTSIZE=20000
