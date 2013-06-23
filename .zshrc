@@ -43,26 +43,32 @@ zstyle -e ':completion:*' file-sort '
 	fi
 '
 
-exit_status() {
+prompt_exit_status() {
 	local err=$?
-	[[ $err -ne 0 ]] && echo "%B%F{166} ✘ $err %f%b"
+
+	(( $err )) && echo -n "%{[38;5;236;22m%}%{[38;5;247;48;5;236m%}%F{166} ✘ %{[1m%}$err%{[22m%} %f"
+
+	if (( $err )); then echo -n '%{[38;5;254;48;5;236;22m%}'
+	else echo -n '%{[38;5;254;49;22m%}'
+	fi
 }
 
-precmd() {
-	if [[ $? -eq 0 ]]; then
-		prompt_fmt1=''
-		prompt_fmt2=';49'
-	else
-		prompt_fmt1='%{[38;5;236;22m%}%{[38;5;247;48;5;236m%}'
-		prompt_fmt2=';48;5;236'
+prompt_context() {
+	local res=''
+
+	if [[ $USER != $DEFAULT_USER ]]; then
+		if (( $EUID == 0 )); then res+='%F{166}%n@%f'
+		else res+='%n@'
+		fi
 	fi
 
-	if [[ "$USER" == "$DEFAULT_USER" ]]; then prompt_fmt3=''
-	elif (( $EUID == 0 )); then prompt_fmt3='%F{166}%n@%f';
-	else prompt_fmt3='%n@'; fi
+	if [[ -n $SSH_CLIENT || $USER != $DEFAULT_USER ]]; then
+		res+='%{[38;5;106;48;5;240;1m%}%m'
+	fi
 
-	if [[ -z $SSH_CLIENT && $USER == $DEFAULT_USER ]]; then prompt_fmt4=''
-	else prompt_fmt4='%{[38;5;106;48;5;240;1m%}%m'; fi
+	if [[ -n $res ]]; then
+		echo -n "%{[38;5;252;48;5;240m%} $res %{[38;5;240;48;5;31;22m%}"
+	fi
 }
 
 autoload -U vcs_info
@@ -70,7 +76,7 @@ autoload -U vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats ' %{[1m%}%b%{[22m%}' '%s'
 
-vcs_prompt() {
+prompt_vcs() {
 	vcs_info
 
 	if [[ -n $vcs_info_msg_0_ ]]; then
@@ -82,14 +88,14 @@ vcs_prompt() {
 			local color_bg=148
 		fi
 
-		echo "%{[38;5;31;48;5;$color_bg;22m%} %F{$color_fg}$vcs_info_msg_0_%f %{[38;5;$color_bg;49;22m%}"
+		echo -n "%{[38;5;31;48;5;$color_bg;22m%} %F{$color_fg}$vcs_info_msg_0_%f %{[38;5;$color_bg;49;22m%}"
 	else
-		echo '%{[38;5;31;49;22m%}'
+		echo -n '%{[38;5;31;49;22m%}'
 	fi
 }
 
-PROMPT='%{[38;5;252;48;5;240m%} $prompt_fmt3$prompt_fmt4 %{[38;5;240;48;5;31;22m%} %{[38;5;231;48;5;31;1m%}%~ $(vcs_prompt)%{[m%} '
-RPROMPT='$prompt_fmt1$(exit_status)%{[38;5;254${prompt_fmt2};22m%}%{[38;5;16;48;5;254m%} ⌚ %D{%H:%M:%S} %{[m%}'
+PROMPT='$(prompt_context)%{[38;5;231;48;5;31;1m%} %~ $(prompt_vcs)%{[m%} '
+RPROMPT='$(prompt_exit_status)%{[38;5;16;48;5;254m%} ⌚ %D{%H:%M:%S} %{[m%}'
 
 HISTSIZE=20000
 HISTFILE=~/.zsh_history
