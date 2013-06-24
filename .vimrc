@@ -566,6 +566,9 @@ if &ur
 	endif
 endif
 
+" Save a file using sudo
+cmap w!! w !sudo tee % >/dev/null
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
