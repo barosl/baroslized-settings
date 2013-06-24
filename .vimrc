@@ -567,7 +567,7 @@ if &ur
 endif
 
 " Save a file using sudo
-cmap w!! w !sudo tee % >/dev/null
+cmap w!! exe 'w !sudo tee '.shellescape(expand('%')).' >/dev/null'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
