@@ -76,7 +76,7 @@ prompt_context() {
 	fi
 
 	if [[ -n $SSH_CLIENT || $USER != $DEFAULT_USER ]]; then
-		res+='%{[38;5;106;48;5;240;1m%}%m'
+		res+='%{[38;5;106;1m%}%m'
 	fi
 
 	if [[ -n $res ]]; then
