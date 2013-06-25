@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ $1 == 'ls' ]]; then
+	tmux ls
+	exit
+fi
+
 if [[ -n $TMUX ]]; then echo 'Already in tmux.'; exit 1; fi
 
 if [[ -z $1 ]]; then
