@@ -19,7 +19,7 @@ zstyle ':completion:*:options' auto-description '%d'
 zstyle ':completion:*:descriptions' format '%B%F{yellow}-- %d --%f%b'
 zstyle ':completion:*:warnings' format '%F{red}No matches for: %d%f'
 zstyle ':completion:*:messages' format '%F{cyan}%d%f'
-zstyle ':completion:*:default' menu yes=long select=1
+zstyle ':completion:*:default' menu yes=long select=1 interactive
 eval $(dircolors -b)
 zstyle ':completion:*' list-colors ${(s@:@)LS_COLORS}
 zstyle ':completion:*' list-prompt '%SListing at %p (%l)%s'
