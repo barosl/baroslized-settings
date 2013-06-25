@@ -35,8 +35,20 @@ zstyle -e ':completion:*:approximate:*' max-errors '
 	reply=($max_errors numeric)
 '
 
-zstyle ':completion:*:*:*:*:processes' command 'ps -u $EUID -o pid,user,args -ww --forest'
-zstyle ':completion:*:*:*:*:processes-names' command 'ps -u $EUID -o args -ww'
+zstyle -e ':completion:*:*:*:*:processes' command $'
+	if (( $funcstack[(Ie)$_comps[sudo]] )); then
+		reply=\'ps -eo pid,user,args -ww --forest\'
+	else
+		reply=\'ps -u $EUID -o pid,user,args -ww --forest\'
+	fi
+'
+zstyle -e ':completion:*:*:*:*:processes-names' command $'
+	if (( $funcstack[(Ie)$_comps[sudo]] )); then
+		reply=\'ps -eo args -ww\'
+	else
+		reply=\'ps -u $EUID -o args -ww\'
+	fi
+'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle -e ':completion:*' file-sort '
 	if [[ $PWD/$PREFIX == */down/* ]]; then
