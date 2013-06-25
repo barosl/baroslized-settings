@@ -1,9 +1,13 @@
 #!/bin/bash
 
-if [[ -n "$TMUX" ]]; then echo 'Already in tmux.'; exit 1; fi
-if [[ -z "$1" ]]; then echo 'Specify session name.'; exit 2; fi
+if [[ -n $TMUX ]]; then echo 'Already in tmux.'; exit 1; fi
 
-base="$1"
+if [[ -z $1 ]]; then
+	base='main'
+else
+	base=$1
+fi
+
 data=$(tmux ls 2>/dev/null)
 
 if [[ -z $(echo "$data" | grep "^$base:") ]]; then
