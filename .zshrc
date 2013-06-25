@@ -334,6 +334,8 @@ bindkey -M menuselect "$keys[PageDown]" forward-word
 bindkey -M menuselect "$keys[C-Down]" forward-word
 bindkey -M menuselect "$keys[C-Down2]" forward-word
 bindkey -M menuselect "'" history-incremental-search-forward
+bindkey -M menuselect '"' accept-line
+bindkey -M menuselect ';' vi-insert
 bindkey -M menuselect "$keys[Home]" beginning-of-history
 bindkey -M menuselect "$keys[Home2]" beginning-of-history
 bindkey -M menuselect "$keys[End]" end-of-history
