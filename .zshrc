@@ -36,6 +36,7 @@ zstyle -e ':completion:*:approximate:*' max-errors '
 '
 
 zstyle ':completion:*:*:*:*:processes' command 'ps -u $EUID -o pid,user,args -ww --forest'
+zstyle ':completion:*:*:*:*:processes-names' command 'ps -u $EUID -o args -ww'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle -e ':completion:*' file-sort '
 	if [[ $PWD/$PREFIX == */down/* ]]; then
