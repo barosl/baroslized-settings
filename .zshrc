@@ -388,6 +388,7 @@ rationalize-dots() {
 
 zle -N rationalize-dots
 bindkey . rationalize-dots
+bindkey -M menuselect . self-insert
 
 [[ "$TERM" == 'xterm' ]] && TERM=xterm-256color
 
