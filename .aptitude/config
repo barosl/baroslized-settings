@@ -1,0 +1,4 @@
+aptitude "";
+aptitude::Delete-Unused-Pattern "";
+Apt "";
+Apt::Install-Recommends "false";
