@@ -55,7 +55,7 @@ if exists("$HOME")
 	let s:dir_backup = s:vim_dir.'/backup'
 
 " 임시 디렉토리 설정
-	if isdirectory(s:dir_tmp)
+	if isdirectory(s:dir_tmp) || mkdir(s:dir_tmp, 'p')
 		set swf
 		let &dir = s:dir_tmp
 	else
@@ -64,7 +64,7 @@ if exists("$HOME")
 	endif
 
 " 백업 디렉토리 설정
-	if isdirectory(s:dir_backup)
+	if isdirectory(s:dir_backup) || mkdir(s:dir_backup, 'p')
 		set bk
 		let &bdir = s:dir_backup
 		set bex=.bak
@@ -559,10 +559,7 @@ set ur=0
 " Persistent undo
 if &ur
 	let s:undo_dir = s:vim_dir.'/undo'
-	if !isdirectory(s:undo_dir)
-		call mkdir(s:undo_dir, 'p')
-	endif
-	if isdirectory(s:undo_dir)
+	if isdirectory(s:undo_dir) || mkdir(s:undo_dir, 'p')
 		set udf
 		let &udir = s:undo_dir
 	endif
