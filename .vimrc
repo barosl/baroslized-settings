@@ -44,13 +44,13 @@ if exists("$HOME")
 	endif
 
 " 경로 설정
-if has("win32")
-	let s:dir_tmp = s:home_dir."/_vim/tmp"
-	let s:dir_backup = s:home_dir."/_vim/backup"
-else
-	let s:dir_tmp = s:home_dir."/.vim/tmp"
-	let s:dir_backup = s:home_dir."/.vim/backup"
-endif
+	if has("win32")
+		let s:dir_tmp = s:home_dir."/_vim/tmp"
+		let s:dir_backup = s:home_dir."/_vim/backup"
+	else
+		let s:dir_tmp = s:home_dir."/.vim/tmp"
+		let s:dir_backup = s:home_dir."/.vim/backup"
+	endif
 
 " 임시 디렉토리 설정
 	if isdirectory(s:dir_tmp)
