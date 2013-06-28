@@ -43,14 +43,16 @@ if exists("$HOME")
 		let s:home_dir = strpart(s:home_dir,0,strlen(s:home_dir)-1)
 	endif
 
-" 경로 설정
-	if has("win32")
-		let s:dir_tmp = s:home_dir."/_vim/tmp"
-		let s:dir_backup = s:home_dir."/_vim/backup"
+" Locate the Vim directory
+	if has('win32')
+		let s:vim_dir = s:home_dir.'/_vim'
 	else
-		let s:dir_tmp = s:home_dir."/.vim/tmp"
-		let s:dir_backup = s:home_dir."/.vim/backup"
+		let s:vim_dir = s:home_dir.'/.vim'
 	endif
+
+" 경로 설정
+	let s:dir_tmp = s:vim_dir.'/tmp'
+	let s:dir_backup = s:vim_dir.'/backup'
 
 " 임시 디렉토리 설정
 	if isdirectory(s:dir_tmp)
@@ -556,7 +558,7 @@ set ur=0
 
 " Persistent undo
 if &ur
-	let s:undo_dir = s:home_dir.'/.vim/undo'
+	let s:undo_dir = s:vim_dir.'/undo'
 	if !isdirectory(s:undo_dir)
 		call mkdir(s:undo_dir, 'p')
 	endif
