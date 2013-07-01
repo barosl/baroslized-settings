@@ -410,7 +410,13 @@ let g:haskell_indent_case = 4
 
 filet off
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+try
+	call vundle#rc()
+catch
+	if confirm('Install Vundle?', "&Yes\n&No") == 1
+		!git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+	endif
+endtry
 Bundle 'gmarik/vundle'
 
 " List of repositories
