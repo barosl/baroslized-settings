@@ -415,6 +415,9 @@ try
 catch
 	if confirm('Install Vundle?', "&Yes\n&No") == 1
 		!git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+		call vundle#rc()
+		let s:init_vundle = 1
 	endif
 endtry
 Bundle 'gmarik/vundle'
@@ -426,6 +429,10 @@ Bundle 'tpope/vim-surround'
 Bundle 'tomtom/tcomment_vim'
 
 filet plugin indent on
+
+if exists('s:init_vundle')
+	BundleInstall
+endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
