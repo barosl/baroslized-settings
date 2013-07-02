@@ -14,7 +14,7 @@
 	pager =
 
 [color]
-	ui = true
+	ui = always
 
 [push]
 	default = simple
