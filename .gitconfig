@@ -21,3 +21,6 @@
 
 [merge]
 	ff = false
+
+[branch]
+	autosetuprebase = always
