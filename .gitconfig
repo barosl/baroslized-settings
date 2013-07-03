@@ -25,7 +25,7 @@
 	signingkey = Barosl LEE
 
 [core]
-	pager = less -+FX
+	pager = less -+$LESS -RS
 
 [color]
 	ui = always
