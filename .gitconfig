@@ -8,6 +8,7 @@
 	it = !git init && git commit -m 'Initial commit' --allow-empty
 	lg = log --oneline --decorate --graph
 	di = diff --word-diff
+	dis = !git di --cached
 	fe = fetch --all -tp
 	ri = rebase -i --autosquash
 
