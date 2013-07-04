@@ -425,6 +425,7 @@ alias mk='make'
 alias f='find'
 alias s='sudo su -'
 alias ht='htop -d10 -sPERCENT_CPU'
+alias di='diff'
 
 if [[ -n "$DISPLAY" ]]; then
 	alias e='gedit'
