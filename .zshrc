@@ -390,6 +390,9 @@ zle -N rationalize-dots
 bindkey . rationalize-dots
 bindkey -M menuselect . self-insert
 
+local script=~/box/.sys/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -e $script ]] && source $script
+
 [[ "$TERM" == 'xterm' ]] && TERM=xterm-256color
 
 alias mv='nocorrect mv -i'
