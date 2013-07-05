@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ $1 == 'ls' ]]; then
-	tmux ls
+	tmux ls | grep -v -- '-[0-9]\+:'
 	exit
 fi
 
@@ -18,7 +18,7 @@ data=$(tmux ls 2>/dev/null)
 if [[ -z $(echo "$data" | grep "^$base:") ]]; then
 	tmux new -s "$base"
 else
-	for sess in $(echo "$data" | grep "^$base-[0-9]\+" | grep -v '(attached)' | cut -d: -f1); do
+	for sess in $(echo "$data" | grep "^$base-[0-9]\+:" | grep -v '(attached)' | cut -d: -f1); do
 		tmux kill-session -t $sess
 	done
 
