@@ -22,6 +22,6 @@ else
 		tmux kill-session -t $sess
 	done
 
-	new=$base-$(date +%H%M%S)
+	new=$base-$(( RANDOM % 100 ))
 	tmux new -s "$new" -t "$base" \; set -q destroy-unattached on
 fi
