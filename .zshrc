@@ -6,7 +6,7 @@ zstyle -e ':completion:*' completer '
 	default_reply=(_expand _complete _approximate)
 
 	local cur_try="$HISTNO:$CURSOR:$BUFFER"
-	if [[ "$_comp_last_try" != "$cur_try" ]]; then
+	if [[ $_comp_last_try != $cur_try ]]; then
 		_comp_last_try="$cur_try"
 
 		reply=($default_reply)
@@ -243,7 +243,7 @@ else
 fi
 
 # Manual configuration for tmux and screen, which have some missing terminfo entries
-if [[ -z "$keys[C-Up]" ]]; then
+if [[ -z $keys[C-Up] ]]; then
 	keys[C-Up]='^[[1;5A'
 	keys[C-Down]='^[[1;5B'
 	keys[C-Left]='^[[1;5D'
@@ -377,9 +377,9 @@ fi
 bindkey '^D' delete-char
 
 rationalize-dots() {
-	if [[ "$LBUFFER" == *... ]]; then
+	if [[ $LBUFFER == *... ]]; then
 		LBUFFER="${LBUFFER%.}/.$KEYS/"
-	elif [[ "$LBUFFER" == */. ]]; then
+	elif [[ $LBUFFER == */. ]]; then
 		LBUFFER+=$KEYS/
 	else
 		LBUFFER+=$KEYS
@@ -400,7 +400,7 @@ else
 	[[ $choice == 'y' ]] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $dir && source $script
 fi
 
-[[ "$TERM" == 'xterm' ]] && TERM=xterm-256color
+[[ $TERM == 'xterm' ]] && TERM=xterm-256color
 
 alias mv='nocorrect mv -i'
 alias cp='nocorrect cp -i'
@@ -437,7 +437,7 @@ alias s='sudo su -'
 alias ht='htop -d10 -sPERCENT_CPU'
 alias di='diff'
 
-if [[ -n "$DISPLAY" ]]; then
+if [[ -n $DISPLAY ]]; then
 	alias e='gedit'
 	alias go='xdg-open'
 	alias rd='rdesktop -k ko -g 1024x768 -r sound:local'
