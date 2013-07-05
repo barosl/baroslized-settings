@@ -29,7 +29,7 @@
 	pager = less -+$LESS -cRS
 
 [color]
-	ui = always
+	ui = auto
 
 [push]
 	default = simple
