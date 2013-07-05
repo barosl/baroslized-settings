@@ -584,6 +584,10 @@ cmap w!! exe 'w !sudo tee '.shellescape(expand('%')).' >/dev/null'
 " Shortcut to reload the file
 noremap <Leader>e :e<CR>
 
+" Use modelines
+set ml
+set mls=5
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
