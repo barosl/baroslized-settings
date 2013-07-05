@@ -31,19 +31,19 @@ zstyle -e ':completion:*:approximate:*' max-errors '
 
 	local max_errors=$(( ($#PREFIX+$#SUFFIX)/3 ))
 
-	if (( $max_errors < $default_max_errors )) max_errors=$default_max_errors
+	if (( max_errors < default_max_errors )) max_errors=$default_max_errors
 	reply=($max_errors numeric)
 '
 
 zstyle -e ':completion:*:*:*:*:processes' command $'
-	if (( $funcstack[(Ie)$_comps[sudo]] )); then
+	if (( funcstack[(Ie)$_comps[sudo]] )); then
 		reply=\'ps -eo pid,user,args -ww --forest\'
 	else
 		reply=\'ps -u $EUID -o pid,user,args -ww --forest\'
 	fi
 '
 zstyle -e ':completion:*:*:*:*:processes-names' command $'
-	if (( $funcstack[(Ie)$_comps[sudo]] )); then
+	if (( funcstack[(Ie)$_comps[sudo]] )); then
 		reply=\'ps -eo args -ww\'
 	else
 		reply=\'ps -u $EUID -o args -ww\'
@@ -59,9 +59,9 @@ zstyle -e ':completion:*' file-sort '
 prompt_exit_status() {
 	local err=$?
 
-	(( $err )) && echo -n "%{[38;5;236;22m%}%{[38;5;247;48;5;236m%}%F{166} ✘ %{[1m%}$err%{[22m%} %f"
+	(( err )) && echo -n "%{[38;5;236;22m%}%{[38;5;247;48;5;236m%}%F{166} ✘ %{[1m%}$err%{[22m%} %f"
 
-	if (( $err )); then echo -n '%{[38;5;254;48;5;236;22m%}'
+	if (( err )); then echo -n '%{[38;5;254;48;5;236;22m%}'
 	else echo -n '%{[38;5;254;49;22m%}'
 	fi
 }
@@ -70,7 +70,7 @@ prompt_context() {
 	local res=''
 
 	if [[ $USER != $DEFAULT_USER ]]; then
-		if (( $EUID == 0 )); then res+='%F{166}%n@%f'
+		if (( EUID == 0 )); then res+='%F{166}%n@%f'
 		else res+='%n@'
 		fi
 	fi
@@ -208,7 +208,7 @@ if (( !${+terminfo[rmkx]} )); then
 fi
 
 # Use raw mode key sequences rather than application mode key sequences
-if (( !$APP_KEY_MODE )); then
+if (( !APP_KEY_MODE )); then
 	keys[Up]='^[[A'
 	keys[Down]='^[[B'
 	keys[Left]='^[[D'
@@ -222,7 +222,7 @@ keys[End2]='^[[4~'
 keys[M-Delete2]='^[^[[3~'
 keys[M-Enter2]='^[^M'
 
-if (( !$APP_KEY_MODE )); then
+if (( !APP_KEY_MODE )); then
 	keys[C-Up2]='^[OA'
 	keys[C-Down2]='^[OB'
 	keys[C-Left2]='^[OD'
@@ -254,7 +254,7 @@ if [[ -z $keys[C-Up] ]]; then
 	keys[S-Left]='^[[1;2D'
 	keys[S-Right]='^[[1;2C'
 
-	if (( $APP_KEY_MODE )); then
+	if (( APP_KEY_MODE )); then
 		keys[Enter]='^[OM'
 	fi
 fi
@@ -363,7 +363,7 @@ zle -N expand-or-complete-with-dots
 bindkey "$keys[Tab]" expand-or-complete-with-dots
 
 if (( ${+terminfo[rmkx]} )); then
-	if (( !$APP_KEY_MODE )); then
+	if (( !APP_KEY_MODE )); then
 		zle-line-init() { echoti rmkx }
 		zle -N zle-line-init
 	else
