@@ -9,11 +9,12 @@
 	lg = log --oneline --decorate --graph
 	lo = log --decorate --graph --stat --summary
 	di = diff
-	ds = !git di --cached
+	df = !git di --cached
 	fe = fetch --all -tp
 	ri = rebase -i --autosquash
-	undo = reset --soft HEAD^
+	ud = reset --soft HEAD^
 	cm = commit -m
+	a = add
 
 	fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
 	squash = !sh -c 'git commit -m \"squash! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
