@@ -7,18 +7,19 @@
 
 	it = !git init && git commit -m 'Initial commit' --allow-empty
 	lg = log --oneline --decorate --graph
+	lo = log --decorate --graph --stat --summary
 	di = diff
-	dis = !git di --cached
+	ds = !git di --cached
 	fe = fetch --all -tp
 	ri = rebase -i --autosquash
+	undo = reset --soft HEAD^
+	cm = commit -m
 
 	fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
 	squash = !sh -c 'git commit -m \"squash! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
 
 	save = stash save
 	pop = stash pop --index
-
-	undo = reset --soft HEAD^
 
 [user]
 	name = Barosl LEE
