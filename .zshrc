@@ -390,14 +390,14 @@ zle -N rationalize-dots
 bindkey . rationalize-dots
 bindkey -M menuselect . self-insert
 
-local dir=~/box/.sys/lib/zsh-syntax-highlighting
-local script=$dir/zsh-syntax-highlighting.zsh
-if [[ -e $script ]]; then
-	source $script
+local _script_dir=~/box/.sys/lib/zsh-syntax-highlighting
+local _script_file=$_script_dir/zsh-syntax-highlighting.zsh
+if [[ -e $_script_file ]]; then
+	source $_script_file
 else
-	local choice=
-	vared -p 'Install zsh-syntax-highlighting? (y/N) ' choice
-	[[ $choice == 'y' ]] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $dir && source $script
+	local _choice=
+	vared -p 'Install zsh-syntax-highlighting? (y/N) ' _choice
+	[[ $_choice == 'y' ]] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $_script_dir && source $_script_file
 fi
 
 [[ $TERM == 'xterm' ]] && TERM=xterm-256color
