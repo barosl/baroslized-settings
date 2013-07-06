@@ -532,7 +532,7 @@ noremap <Leader>w :call ToggleWrap()<CR>
 call UpdateWrap()
 
 " Set working directory to the directory of the current file
-au BufEnter * sil! lcd %:p:h
+"au BufEnter * sil! lcd %:p:h
 
 " Toggle space indentation mode
 fu! ToggleTab()
