@@ -1,5 +1,11 @@
 #!/bin/bash
 
+redir_cmd() {
+	if (( SILENT )); then "$@" &>/dev/null
+	else "$@"
+	fi
+}
+
 if [[ $1 == 'ls' ]]; then
 	tmux ls | grep -v -- '-[0-9]\+:'
 	exit
@@ -22,6 +28,12 @@ else
 		tmux kill-session -t $sess
 	done
 
-	new=$base-$(( RANDOM % 100 ))
-	tmux new -s "$new" -t "$base" \; set -q destroy-unattached on
+	for i in {2..0}; do
+		new=$base-$(( RANDOM % 100 ))
+		SILENT=$i redir_cmd tmux new -s "$new" -t "$base" -d
+		if (( !$? )); then
+			tmux attach -t "$new" \; set -q destroy-unattached on
+			break
+		fi
+	done
 fi
