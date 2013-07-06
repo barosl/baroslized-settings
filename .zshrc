@@ -413,7 +413,7 @@ alias l='less -cRS'
 alias h='head'
 alias t='tail'
 alias c='cat'
-alias esc="sed -r 's/\x1b\[[0-9;]*[mK]//g'"
+alias esc="LC_COLLATE=C sed 's/\x1b\[\?[^@-~]*[@-~]//g'"
 
 alias -g G='| g'
 alias -g L='| l'
