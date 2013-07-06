@@ -579,7 +579,7 @@ if &ur
 endif
 
 " Save a file using sudo
-com W exe 'w !sudo tee '.shellescape(expand('%')).' >/dev/null'
+com! SudoWrite exe 'sil w !sudo tee '.shellescape(expand('%')).' >/dev/null' | e!
 
 " Shortcut to reload the file
 noremap <Leader>e :e<CR>
