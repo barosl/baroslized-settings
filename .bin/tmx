@@ -22,7 +22,7 @@ fi
 data=$(tmux ls 2>/dev/null)
 
 if [[ -z $(echo "$data" | grep "^$base:") ]]; then
-	tmux new -s "$base"
+	exec tmux new -s "$base"
 else
 	for sess in $(echo "$data" | grep "^$base-[0-9]\+:" | grep -v '(attached)' | cut -d: -f1); do
 		tmux kill-session -t $sess
@@ -32,8 +32,7 @@ else
 		new=$base-$(( RANDOM % 100 ))
 		SILENT=$i redir_cmd tmux new -s "$new" -t "$base" -d
 		if (( !$? )); then
-			tmux attach -t "$new" \; set -q destroy-unattached on
-			break
+			exec tmux attach -t "$new" \; set -q destroy-unattached on
 		fi
 	done
 fi
