@@ -413,7 +413,10 @@ alias l='less -cRS'
 alias h='head'
 alias t='tail'
 alias c='cat'
-alias esc="LC_COLLATE=C sed 's/\x1b\[\?[^@-~]*[@-~]//g'"
+case $OSTYPE in
+	*-gnu | cygwin) alias esc="LC_COLLATE=C sed 's/\x1b\[\?[^@-~]*[@-~]//g'" ;;
+	*) alias esc="perl -pe 's/\e\[?.*?[\@-~]//g'" ;;
+esac
 
 alias -g G='| g'
 alias -g L='| l'
