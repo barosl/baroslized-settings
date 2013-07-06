@@ -36,14 +36,14 @@ zstyle -e ':completion:*:approximate:*' max-errors '
 '
 
 zstyle -e ':completion:*:*:*:*:processes' command $'
-	if (( funcstack[(Ie)$_comps[sudo]] )); then
+	if (( funcstack[(Ie)$_comps[sudo]] || EUID == 0 )); then
 		reply=\'ps -eo pid,user,args -ww --forest\'
 	else
 		reply=\'ps -u $EUID -o pid,user,args -ww --forest\'
 	fi
 '
 zstyle -e ':completion:*:*:*:*:processes-names' command $'
-	if (( funcstack[(Ie)$_comps[sudo]] )); then
+	if (( funcstack[(Ie)$_comps[sudo]] || EUID == 0 )); then
 		reply=\'ps -eo args -ww\'
 	else
 		reply=\'ps -u $EUID -o args -ww\'
