@@ -413,12 +413,14 @@ alias l='less -cRS'
 alias h='head'
 alias t='tail'
 alias c='cat'
+alias esc="sed -r 's/\x1b\[[0-9;]*[mK]//g'"
 
 alias -g G='| g'
 alias -g L='| l'
 alias -g H='| h'
 alias -g T='| t'
 alias -g V='| v -'
+alias -g E='| esc'
 
 alias -s txt='v'
 alias -s mp3='mp'
