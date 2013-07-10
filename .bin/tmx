@@ -28,6 +28,10 @@ else
 		tmux kill-session -t $sess
 	done
 
+	if [[ -n $(echo "$data" | grep "^$base:" | grep -v '(attached)') ]]; then
+		exec tmux attach -t $base
+	fi
+
 	for i in {2..0}; do
 		new=$base-$(( RANDOM % 100 ))
 		SILENT=$i redir_cmd tmux new -s "$new" -t "$base" -d
