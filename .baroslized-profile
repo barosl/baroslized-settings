@@ -7,6 +7,10 @@
 OLD_IFS=$IFS
 IFS='!'
 for x in $(zsh -c 'source ~/.zprofile && env -0 | sed "s/\x00/!/g"'); do
+	case $x in
+		SHLVL=* | _=* | OLDPWD=*) continue ;;
+	esac
+
 	eval "$(echo "$x" | sed "s/'/'\\\\''/g" | sed "s/=/='/")'"
 done
 IFS=$OLD_IFS
