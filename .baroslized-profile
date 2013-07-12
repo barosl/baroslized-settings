@@ -5,8 +5,8 @@
 
 # Copy environment variables from ~/.zprofile
 OLD_IFS=$IFS
-IFS=$'\n'
-for x in $(zsh -c 'source ~/.zprofile && env'); do
+IFS='!'
+for x in $(zsh -c 'source ~/.zprofile && env -0 | sed "s/\x00/!/g"'); do
 	eval "${x/=/=\"}\""
 done
 IFS=$OLD_IFS
