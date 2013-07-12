@@ -7,7 +7,8 @@
 OLD_IFS=$IFS
 IFS='!'
 for x in $(zsh -c 'source ~/.zprofile && env -0 | sed "s/\x00/!/g"'); do
-	eval "${x/=/=\"}\""
+	x=${x//\'/\'\\\'\'}
+	eval ${x/=/=\'}\'
 done
 IFS=$OLD_IFS
 
