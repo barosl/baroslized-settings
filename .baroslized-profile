@@ -3,6 +3,16 @@
 # last modified: 2008-08-12 16:09:28
 ######################################################################
 
+# Copy environment variables from ~/.zprofile
+OLD_IFS=$IFS
+IFS=$'\n'
+for x in $(zsh -c 'source ~/.zprofile && env'); do
+	eval "${x/=/=\"}\""
+done
+IFS=$OLD_IFS
+
+: <<'EOF'
+
 # set PATH
 export PATH='/home/barosl/.bin':"$PATH"
 export PATH="$PATH":'/home/barosl/.sdk/open2x/gcc-4.1.1-glibc-2.3.6/bin'
@@ -58,5 +68,7 @@ export CLASSPATH='.:/usr/share/java/qtjambi-4.7.4.jar'
 
 # Restoring the historical umask
 umask 022
+
+EOF
 
 # EndOfFile /* vim: set ft=sh: */
