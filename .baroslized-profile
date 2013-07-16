@@ -11,7 +11,7 @@ for x in $(zsh -c 'source ~/.zprofile && env -0 | sed "s/\x00/!/g"'); do
 		SHLVL=* | _=* | OLDPWD=*) continue ;;
 	esac
 
-	eval "$(echo "$x" | sed "s/'/'\\\\''/g" | sed "s/=/='/")'"
+	eval "export $(echo "$x" | sed "s/'/'\\\\''/g" | sed "s/=/='/")'"
 done
 IFS=$OLD_IFS
 
