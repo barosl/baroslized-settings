@@ -400,6 +400,11 @@ else
 	[[ $_choice == 'y' ]] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $_script_dir && source $_script_file
 fi
 
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=cyan,bold'
+ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=blue,bold'
+ZSH_HIGHLIGHT_PATTERNS+=('rm -rf \*' 'fg=white,bold,bg=red')
+
 [[ $TERM == 'xterm' ]] && TERM=xterm-256color
 
 alias mv='nocorrect mv -i'
