@@ -429,6 +429,7 @@ alias -g H='| h'
 alias -g T='| t'
 alias -g V='| v -'
 alias -g E='| esc'
+alias -g C='| c'
 
 alias -s txt='v'
 alias -s mp3='mp'
