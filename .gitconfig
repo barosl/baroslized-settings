@@ -1,26 +1,35 @@
 [alias]
 	ci = commit
-	st = status -sb
+	s = status -sb
 	co = checkout
 	br = branch
-	desc = describe
+	ds = describe
 
 	it = !git init && git commit -m 'Initial commit' --allow-empty
-	lg = log --oneline --decorate --graph
-	lo = log --decorate --graph --stat --summary
-	di = diff
-	df = !git di --cached
+	l = log --oneline --decorate --graph
+	lg = log --decorate --graph --stat --summary
+	d = diff
+	di = !git d --cached
 	fe = fetch --all -tp
-	ri = rebase -i --autosquash
+	r = rebase -i --autosquash
 	ud = reset --soft HEAD^
 	cm = commit -m
 	a = add
+	rs = reset
+	fb = filter-branch
+	sh = show
+	rl = reflog
+	ps = push
+	pl = pull
+	cl = clone
 
-	fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
-	squash = !sh -c 'git commit -m \"squash! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
+	fx = !sh -c 'git commit -m \"fixup! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
+	sq = !sh -c 'git commit -m \"squash! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
 
-	save = stash save
-	pop = stash pop --index
+	sa = stash save
+	po = stash pop --index
+	sl = stash list
+	ss = stash show -p
 
 [user]
 	name = Barosl LEE
