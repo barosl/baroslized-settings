@@ -421,7 +421,9 @@ case $OSTYPE in
 esac
 alias s='sort'
 alias u='sort -u'
-alias k='ack'
+if command -v ack >/dev/null; then alias k='ack'
+else alias k='ack-grep'
+fi
 alias -- -='sudo su -'
 alias _='sudo'
 
