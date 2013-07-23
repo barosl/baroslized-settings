@@ -131,9 +131,6 @@ unsetopt CASE_MATCH
 unsetopt RM_STAR_SILENT
 setopt NOMATCH
 
-alias -- -='cd -1'
-alias _='sudo'
-
 alias 1='cd -1'
 alias 2='cd -2'
 alias 3='cd -3'
@@ -422,6 +419,11 @@ case $OSTYPE in
 	*-gnu | cygwin) alias esc="LC_COLLATE=C sed 's/\x1b\[\?[^@-~]*[@-~]//g'" ;;
 	*) alias esc="perl -pe 's/\e\[?.*?[\@-~]//g'" ;;
 esac
+alias s='sort'
+alias u='sort -u'
+alias k='ack'
+alias -- -='sudo su -'
+alias _='sudo'
 
 alias -g G='| g'
 alias -g L='| l'
@@ -430,6 +432,9 @@ alias -g T='| t'
 alias -g V='| v -'
 alias -g E='| esc'
 alias -g C='| c'
+alias -g S='| s'
+alias -g U='| u'
+alias -g K='| k'
 
 alias -s txt='v'
 alias -s mp3='mp'
@@ -440,13 +445,17 @@ alias mp='mplayer'
 alias sc='screen'
 alias tm='tmux'
 alias p='ps -eo user,pid,ppid,%cpu,start,time,args --sort start_time'
-alias k='kill'
+alias ki='kill'
 alias ka='killall'
 alias mk='make'
 alias f='find'
-alias s='sudo su -'
 alias ht='htop -d10 -sPERCENT_CPU'
 alias di='diff'
+alias m5='md5sum'
+alias s1='sha1sum'
+alias s2='sha256sum'
+alias s5='sha512sum'
+alias gi='git'
 
 if [[ -n $DISPLAY ]]; then
 	alias e='gedit'
