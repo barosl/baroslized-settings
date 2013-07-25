@@ -131,6 +131,7 @@ unsetopt CASE_MATCH
 unsetopt RM_STAR_SILENT
 setopt NOMATCH
 
+alias -- -='cd -1'
 alias 1='cd -1'
 alias 2='cd -2'
 alias 3='cd -3'
@@ -419,12 +420,12 @@ case $OSTYPE in
 	*-gnu | cygwin) alias esc="LC_COLLATE=C sed 's/\x1b\[\?[^@-~]*[@-~]//g'" ;;
 	*) alias esc="perl -pe 's/\e\[?.*?[\@-~]//g'" ;;
 esac
-alias s='sort'
+alias so='sort'
 alias u='sort -u'
 if command -v ack >/dev/null; then alias k='ack'
 else alias k='ack-grep'
 fi
-alias -- -='sudo su -'
+alias s='sudo su -'
 alias _='sudo'
 
 alias -g G='| g'
@@ -434,7 +435,7 @@ alias -g T='| t'
 alias -g V='| v -'
 alias -g E='| esc'
 alias -g C='| c'
-alias -g S='| s'
+alias -g S='| so'
 alias -g U='| u'
 alias -g K='| k'
 
