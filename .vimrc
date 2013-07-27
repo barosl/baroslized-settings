@@ -588,6 +588,16 @@ noremap <Leader>e :e<CR>
 set ml
 set mls=5
 
+" Always use list mode
+set list
+
+" Characters to use in list mode
+set lcs=tab:»\ ,trail:·,extends:→,precedes:←,nbsp:␣
+
+" Don't highlight tab characters in HTML files
+"au FileType * set lcs-=tab:\ \ 
+"au FileType html,xhtml set lcs+=tab:\ \ 
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
