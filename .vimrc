@@ -604,6 +604,9 @@ exe 'set cc=+'.join(range(1, 255), ',+')
 " Key sequence to toggle paste mode
 set pt=<F2>
 
+" Allow use of ';' instead of ':'
+noremap ; :
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
