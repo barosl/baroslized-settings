@@ -462,6 +462,7 @@ alias s1='sha1sum'
 alias s2='sha256sum'
 alias s5='sha512sum'
 alias gi='git'
+alias wg='wget'
 
 if [[ -n $DISPLAY ]]; then
 	alias e='gedit'
