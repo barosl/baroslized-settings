@@ -598,6 +598,9 @@ set lcs=tab:»\ ,trail:·,extends:→,precedes:←,nbsp:␣
 "au FileType * set lcs-=tab:\ \ 
 "au FileType html,xhtml set lcs+=tab:\ \ 
 
+" Highlight columns after 'textwidth'
+exe 'set cc=+'.join(range(1, 255), ',+')
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
