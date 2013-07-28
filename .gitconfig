@@ -22,6 +22,8 @@
 	ps = push
 	pl = pull
 	cl = clone
+	rb = rebase
+	mg = merge
 
 	cf = !sh -c 'git commit -m \"fixup! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
 	cs = !sh -c 'git commit -m \"squash! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
