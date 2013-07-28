@@ -23,11 +23,11 @@
 	pl = pull
 	cl = clone
 
-	fx = !sh -c 'git commit -m \"fixup! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
-	sq = !sh -c 'git commit -m \"squash! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
+	cf = !sh -c 'git commit -m \"fixup! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
+	cs = !sh -c 'git commit -m \"squash! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
 
-	sa = stash save
-	po = stash pop --index
+	sv = stash save
+	sp = stash pop --index
 	sl = stash list
 	ss = stash show -p
 
