@@ -400,7 +400,7 @@ else
 fi
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-ZSH_HIGHLIGHT_STYLES[globbing]='fg=cyan,bold'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=green,bold'
 ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=blue,bold'
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf \*' 'fg=white,bold,bg=red')
 
