@@ -159,7 +159,7 @@ if [[ -x /usr/lib/command-not-found ]]; then
 	}
 fi
 
-WORDCHARS="${WORDCHARS//[\/<>]/}"
+WORDCHARS=''
 
 KEYTIMEOUT=1
 
