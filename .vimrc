@@ -613,6 +613,10 @@ set nohid
 " Use ',' as a leader key
 let mapleader = ','
 
+" Use soft tabs instead of hard tabs
+set et
+let &sts = &ts
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
