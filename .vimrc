@@ -607,6 +607,9 @@ set pt=<F2>
 " Allow use of ';' instead of ':'
 noremap ; :
 
+" Don't use hidden buffers
+set nohid
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
