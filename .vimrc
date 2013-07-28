@@ -241,7 +241,7 @@ set noai
 set nosi
 
 " 내장된 indent 파일이 없어서 C indent 를 사용하는 경우
-au FileType javascript,jsp setl cin
+"au FileType javascript,jsp setl cin
 
 " 각 언어의 표준 indent 를 사용하는 경우
 " 수동 추가하기가 귀찮아져서 결국 자동 인식으로 바꿨다.
