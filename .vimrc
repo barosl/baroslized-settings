@@ -367,10 +367,10 @@ endf
 fu! ToggleSpell()
 	let &l:spell = 1 - &l:spell
 endf
-map \n :call ToggleNu()<CR>
-map \l :call ToggleList()<CR>
-map \p :call TogglePaste()<CR>
-map \s :call ToggleSpell()<CR>
+map <Leader>n :call ToggleNu()<CR>
+map <Leader>l :call ToggleList()<CR>
+map <Leader>p :call TogglePaste()<CR>
+map <Leader>s :call ToggleSpell()<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -609,6 +609,9 @@ noremap ; :
 
 " Don't use hidden buffers
 set nohid
+
+" Use ',' as a leader key
+let mapleader = ','
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
