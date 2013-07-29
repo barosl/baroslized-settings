@@ -629,6 +629,9 @@ nnoremap <C-Up> ddkP
 vnoremap <C-Down> dp`[V`]
 vnoremap <C-Up> dkP`[V`]
 
+" Select the previously edited or copied text
+noremap gV `[v`]
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
