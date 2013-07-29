@@ -623,6 +623,12 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+" Move selected lines
+nnoremap <C-Down> ddp
+nnoremap <C-Up> ddkP
+vnoremap <C-Down> dp`[V`]
+vnoremap <C-Up> dkP`[V`]
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
