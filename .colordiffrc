@@ -11,3 +11,8 @@ cvsstuff=green
 # For light backgrounds
 #diffstuff=darkgreen
 #cvsstuff=darkmagenta
+
+# Baroslized colors
+diffstuff=cyan
+newtext=green
+oldtext=red
