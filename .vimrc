@@ -328,6 +328,10 @@ endif
 " 편리한 기능
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Use ',' as a leader key
+" Must precede any key sequences based on <Leader>
+let mapleader = ','
+
 " Tab 자동 완성시 가능한 목록을 보여줌
 set wmnu
 
@@ -609,9 +613,6 @@ noremap ; :
 
 " Don't use hidden buffers
 set nohid
-
-" Use ',' as a leader key
-let mapleader = ','
 
 " Use soft tabs instead of hard tabs
 set et
