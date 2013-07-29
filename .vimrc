@@ -617,6 +617,12 @@ let mapleader = ','
 set et
 let &sts = &ts
 
+" Key sequences to navigate between windows
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
