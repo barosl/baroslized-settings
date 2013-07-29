@@ -44,6 +44,11 @@
 [color]
 	ui = auto
 
+[color "diff"]
+	frag = cyan bold
+	old = red bold
+	new = green bold
+
 [push]
 	default = simple
 
