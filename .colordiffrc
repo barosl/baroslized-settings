@@ -1,0 +1,13 @@
+banner=no
+color_patches=no
+diff_cmd=diff
+
+plain=off
+newtext=blue
+oldtext=red
+diffstuff=magenta
+cvsstuff=green
+
+# For light backgrounds
+#diffstuff=darkgreen
+#cvsstuff=darkmagenta
