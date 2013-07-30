@@ -410,7 +410,10 @@ alias mv='nocorrect mv -i'
 alias cp='nocorrect cp -i'
 alias rm='nocorrect rm -i'
 alias mkdir='nocorrect mkdir'
-alias ls='ls --color=always'
+case $OSTYPE in
+	*bsd* | darwin*) alias ls='CLICOLOR_FORCE=1 ls -G' ;;
+	*) alias ls='ls --color=always' ;;
+esac
 alias la='ls -a'
 alias g='grep --color=always'
 alias l='less -cRS'
