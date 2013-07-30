@@ -421,7 +421,7 @@ alias h='head'
 alias t='tail'
 alias c='cat'
 case $OSTYPE in
-	*-gnu | cygwin) alias esc="LC_COLLATE=C sed 's/\x1b\[\?[^@-~]*[@-~]//g'" ;;
+	*-gnu | cygwin | msys) alias esc="LC_COLLATE=C sed 's/\x1b\[\?[^@-~]*[@-~]//g'" ;;
 	*) alias esc="perl -pe 's/\e\[?.*?[\@-~]//g'" ;;
 esac
 alias so='sort'
