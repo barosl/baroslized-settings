@@ -20,8 +20,12 @@ zstyle ':completion:*:descriptions' format '%B%F{yellow}-- %d --%f%b'
 zstyle ':completion:*:warnings' format '%F{red}No matches for: %d%f'
 zstyle ':completion:*:messages' format '%F{cyan}%d%f'
 zstyle ':completion:*:default' menu yes=long select=1
-eval $(dircolors -b)
-zstyle ':completion:*' list-colors ${(s@:@)LS_COLORS}
+if command -v dircolors >/dev/null; then
+	eval $(dircolors -b)
+	zstyle ':completion:*' list-colors ${(s@:@)LS_COLORS}
+else
+	zstyle ':completion:*' list-colors ''
+fi
 zstyle ':completion:*' list-prompt '%SListing at %p (%l)%s'
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
 zstyle ':completion:*' select-prompt '%SSeleting at %p (%m)%s'
