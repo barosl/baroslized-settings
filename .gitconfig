@@ -29,7 +29,7 @@
 	cs = !sh -c 'git commit -m \"squash! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
 
 	sv = stash save
-	sp = stash pop --index
+	po = stash pop --index
 	sl = stash list
 	ss = stash show -p
 
