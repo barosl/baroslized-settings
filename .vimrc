@@ -606,7 +606,7 @@ set lcs=tab:»\ ,trail:·,extends:→,precedes:←,nbsp:␣
 exe 'set cc=+'.join(range(1, 255), ',+')
 
 " Key sequence to toggle paste mode
-set pt=<F2>
+set pt=<F4>
 
 " Allow use of ';' instead of ':'
 noremap ; :
