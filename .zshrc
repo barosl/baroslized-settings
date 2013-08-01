@@ -451,6 +451,8 @@ alias -s txt='v'
 alias -s mp3='mp'
 
 alias v='vim'
+alias vo='v -O'
+alias vp='v -p'
 alias py2='python2'
 alias py3='python3'
 alias py='py3'
