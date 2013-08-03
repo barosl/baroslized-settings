@@ -633,6 +633,9 @@ vnoremap <C-Up> dkP`[V`]
 " Select the previously edited or copied text
 noremap gV `[v`]
 
+" Convert leading whitespace between tabs and spaces
+noremap <Leader>i :ret!<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
