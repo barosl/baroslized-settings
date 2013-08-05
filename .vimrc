@@ -636,6 +636,18 @@ noremap gV `[v`]
 " Convert leading whitespace between tabs and spaces
 noremap <Leader>i :ret!<CR>
 
+" Detect indent style
+fu! <SID>DetectIndent()
+	let l:line_cnt = 50
+	let l:lines = getline(1, l:line_cnt) + getline(line('$')-l:line_cnt+1, '$')
+
+	if len(filter(l:lines, 'v:val =~ "^\\t"')) > len(filter(l:lines, 'v:val =~ "^ "'))
+		set noet ts=4 sw=4 sts=0
+	endif
+endf
+
+au BufReadPost * call <SID>DetectIndent()
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
