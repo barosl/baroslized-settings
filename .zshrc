@@ -447,8 +447,8 @@ alias -g S='| so'
 alias -g U='| u'
 alias -g K='| k'
 
-alias -s txt='v'
-alias -s mp3='mp'
+#alias -s txt='v'
+#alias -s mp3='mp'
 
 alias vo='vim -O'
 alias vp='vim -p'
