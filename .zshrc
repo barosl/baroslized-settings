@@ -403,10 +403,12 @@ else
 	[[ $_choice == 'y' ]] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $_script_dir && source $_script_file
 fi
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-ZSH_HIGHLIGHT_STYLES[globbing]='fg=green,bold'
-ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=blue,bold'
-ZSH_HIGHLIGHT_PATTERNS+=('rm -rf \*' 'fg=white,bold,bg=red')
+if [[ -n ${ZSH_HIGHLIGHT_HIGHLIGHTERS+set} ]]; then
+	ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+	ZSH_HIGHLIGHT_STYLES[globbing]='fg=green,bold'
+	ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=blue,bold'
+	ZSH_HIGHLIGHT_PATTERNS+=('rm -rf \*' 'fg=white,bold,bg=red')
+fi
 
 [[ $TERM == 'xterm' ]] && TERM=xterm-256color
 
