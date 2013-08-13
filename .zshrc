@@ -403,7 +403,7 @@ else
 	[[ $_choice == 'y' ]] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $_script_dir && source $_script_file
 fi
 
-if [[ -n ${ZSH_HIGHLIGHT_HIGHLIGHTERS+set} ]]; then
+if (($+ZSH_HIGHLIGHT_HIGHLIGHTERS)); then
 	ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 	ZSH_HIGHLIGHT_STYLES[globbing]='fg=green,bold'
 	ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=blue,bold'
