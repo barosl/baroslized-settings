@@ -448,6 +448,8 @@ alias -g C='| c'
 alias -g S='| so'
 alias -g U='| u'
 alias -g K='| k'
+alias -g N='>/dev/null'
+alias -g M='2>/dev/null'
 
 #alias -s txt='v'
 #alias -s mp3='mp'
