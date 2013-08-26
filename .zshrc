@@ -389,9 +389,9 @@ rationalize-dots() {
 	fi
 }
 
-zle -N rationalize-dots
-bindkey . rationalize-dots
-bindkey -M menuselect . self-insert
+#zle -N rationalize-dots
+#bindkey . rationalize-dots
+#bindkey -M menuselect . self-insert
 
 local _script_dir=~/box/.sys/lib/zsh-syntax-highlighting
 local _script_file=$_script_dir/zsh-syntax-highlighting.zsh
