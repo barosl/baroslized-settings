@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo ; goto() { :; } # >nul
+goto batch
+
 nameservers=
 searches=
 
@@ -26,3 +29,6 @@ if [[ -n "$nameservers" || -n "$searches" ]]; then
         fi
     fi
 fi
+
+exit
+:batch
