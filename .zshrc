@@ -435,6 +435,7 @@ alias u='sort -u'
 if command -v ack >/dev/null; then alias k='ack'
 else alias k='ack-grep'
 fi
+alias sudo='sudo '
 alias s='sudo su -'
 alias _='sudo'
 
