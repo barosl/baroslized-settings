@@ -3,7 +3,7 @@
 echo ; goto() { :; } # >nul
 goto batch
 
-mv /etc/resolv.conf.ovpn-ori /etc/resolv.conf
+resolvconf -d $1.openvpn
 
 exit
 :batch
