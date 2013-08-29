@@ -648,6 +648,9 @@ endf
 
 au BufReadPost * call <SID>DetectIndent()
 
+" Redraw the screen
+noremap <Leader>r :redr!<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of File
