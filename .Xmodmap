@@ -3,3 +3,9 @@
 
 !remove mod1 = Hangul
 !remove control = Hangul_Hanja
+
+! Swap Escape and Caps Lock
+remove Lock = Caps_Lock
+keysym Caps_Lock = Escape
+keysym Escape = Caps_Lock
+add Lock = Caps_Lock
