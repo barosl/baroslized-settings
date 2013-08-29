@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo ; goto() { :; } # >nul
+echo -n ; goto() { :; } # >nul
 goto batch
 
 resolvconf -d $1.openvpn
