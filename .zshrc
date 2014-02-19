@@ -480,8 +480,9 @@ alias s5='sha512sum'
 alias gi='git'
 alias wg='wget'
 alias vn='openvpn'
-alias sshn='ssh -S none'
+alias sshh='ssh -S none'
 alias sshs="ssh '' -O stop -S"
+alias zc='zcat'
 
 if [[ -n $DISPLAY ]]; then
 	alias e='gedit'
