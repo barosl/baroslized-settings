@@ -132,7 +132,7 @@ unsetopt LIST_AMBIGUOUS
 unsetopt HUP
 setopt CASE_GLOB
 unsetopt CASE_MATCH
-unsetopt RM_STAR_SILENT
+setopt RM_STAR_SILENT
 setopt NOMATCH
 
 alias -- -='cd -1'
