@@ -18,7 +18,7 @@
 	rs = reset
 	fb = filter-branch
 	sh = show
-	rl = reflog
+	rl = reflog --date=relative
 	ps = push
 	pl = pull
 	cl = clone
