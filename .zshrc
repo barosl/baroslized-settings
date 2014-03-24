@@ -399,8 +399,8 @@ if [[ -e $_script_file ]]; then
 	source $_script_file
 else
 	local _choice=
-	vared -p 'Install zsh-syntax-highlighting? (y/N) ' _choice
-	[[ $_choice == 'y' ]] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $_script_dir && source $_script_file
+	vared -p 'Install zsh-syntax-highlighting? (Y/n) ' _choice
+	[[ $_choice == 'y' || $_choice == '' ]] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $_script_dir && source $_script_file
 fi
 
 if (($+ZSH_HIGHLIGHT_HIGHLIGHTERS)); then
