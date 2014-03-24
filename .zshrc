@@ -483,6 +483,7 @@ alias vn='openvpn'
 alias sshh='ssh -S none'
 alias sshs="ssh '' -O stop -S"
 alias zc='zcat'
+alias apt-get='apt-get --no-install-recommends'
 
 if [[ -n $DISPLAY ]]; then
 	alias e='gedit'
