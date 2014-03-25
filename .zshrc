@@ -410,6 +410,15 @@ if (($+ZSH_HIGHLIGHT_HIGHLIGHTERS)); then
 	ZSH_HIGHLIGHT_PATTERNS+=('rm -rf \*' 'fg=white,bold,bg=red')
 fi
 
+venv_activate() {
+	if [[ -e .venv ]]; then
+		. .venv/bin/activate
+	fi
+}
+
+add-zsh-hook chpwd venv_activate
+venv_activate
+
 [[ $TERM == 'xterm' ]] && TERM=xterm-256color
 
 alias mv='nocorrect mv -i'
