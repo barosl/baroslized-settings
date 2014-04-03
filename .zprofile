@@ -6,7 +6,7 @@ bin_dirs=(
 )
 
 local -a app_dirs
-app_dirs=(~/.app/*(N/))
+app_dirs=(~/.app/*(N-/))
 for app_dir in $app_dirs; do
 	if [[ -d $app_dir/bin ]]; then
 		bin_dirs+=$app_dir/bin
