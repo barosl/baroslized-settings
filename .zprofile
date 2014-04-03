@@ -10,6 +10,8 @@ app_dirs=(~/.app/*(N/))
 for app_dir in $app_dirs; do
 	if [[ -d $app_dir/bin ]]; then
 		bin_dirs+=$app_dir/bin
+	elif [[ -d $app_dir/.bin ]]; then
+		bin_dirs+=$app_dir/.bin
 	else
 		bin_dirs+=$app_dir
 	fi
