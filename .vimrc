@@ -431,6 +431,7 @@ Bundle 'zeis/vim-kolor'
 Bundle 'Lokaltog/powerline'
 Bundle 'tpope/vim-surround'
 Bundle 'tomtom/tcomment_vim'
+Bundle 'kchmck/vim-coffee-script'
 
 filet plugin indent on
 
