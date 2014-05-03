@@ -495,6 +495,7 @@ alias sshh='ssh -S none'
 alias sshs="ssh '' -O stop -S"
 alias zc='zcat'
 alias apt-get='apt-get --no-install-recommends'
+alias rsy='rsync -avzh --delete --progress'
 
 if [[ -n $DISPLAY ]]; then
 	alias e='gedit'
