@@ -1,0 +1,19 @@
+\set QUIET
+
+\pset null (null)
+\pset border 2
+\pset expanded auto
+
+\set PROMPT1 '%n@%m:%>/%/%# '
+\set PROMPT2 '%R> '
+
+\set HISTCONTROL ignoreboth
+\set HISTSIZE 20000
+-- \set HISTFILE ~/.psql_history- :DBNAME
+
+-- \set ECHO_HIDDEN
+\set COMP_KEYWORD_CASE upper
+
+\timing on
+
+\unset QUIET
