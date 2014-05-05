@@ -4,7 +4,7 @@
 \pset border 2
 \pset expanded auto
 
-\set PROMPT1 '%n@%m:%>/%~%#%x '
+\set PROMPT1 '%[%033[38;5;52;48;5;201m%] %n@%m:%> %[%033[38;5;201;48;5;47m%]%[%033[38;5;22m%] %~ %[%033[38;5;47;49m%]%[%033[38;5;226;48;5;196m%]%x%[%033[m%] '
 \set PROMPT2 '%R> '
 
 \set HISTCONTROL ignoreboth
