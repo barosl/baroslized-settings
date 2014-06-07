@@ -1,0 +1,14 @@
+#$include /etc/inputrc
+
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+
+"\eOA": history-search-backward
+"\eOB": history-search-forward
+
+"\eOD": backward-word
+"\eOC": forward-word
+
+$if Python
+    "\C-o": "import sys, os\C-m"
+$endif
