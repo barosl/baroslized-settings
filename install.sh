@@ -9,6 +9,9 @@ set -- \
     .colordiffrc \
     .baroslized-profile \
     .ssh/config \
+    .sqliterc \
+    .psqlrc \
+    .inputrc \
 
 [ ! -e $HOME/.ssh ] && mkdir $HOME/.ssh && chmod 700 $HOME/.ssh
 
