@@ -28,7 +28,7 @@ else
 fi
 
 export LANG='en_US.UTF-8'
-export LC_COLLATE='C'
+export LC_COLLATE='C.UTF-8'
 export LC_TIME='en_DK.UTF-8'
 
 export EDITOR='vim'
