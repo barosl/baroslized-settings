@@ -1,6 +1,14 @@
 #!/bin/sh
 
-set -- .vimrc .zshrc .zprofile .gitconfig .tmux.conf .colordiffrc .baroslized-profile .ssh/config
+set -- \
+    .vimrc \
+    .zshrc \
+    .zprofile \
+    .gitconfig \
+    .tmux.conf \
+    .colordiffrc \
+    .baroslized-profile \
+    .ssh/config \
 
 [ ! -e $HOME/.ssh ] && mkdir $HOME/.ssh && chmod 700 $HOME/.ssh
 
