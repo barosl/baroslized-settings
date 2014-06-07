@@ -9,5 +9,6 @@ for file; do
 done
 
 if ! grep -Fxq '### baroslized settings ###' ~/.profile; then
+    cp -ai ~/.profile ~/.profile.ori
     { echo; echo; echo '### baroslized settings ###'; echo '. ~/.baroslized-profile'; } >> ~/.profile
 fi
