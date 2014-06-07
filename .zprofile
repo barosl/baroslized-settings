@@ -27,6 +27,10 @@ else
 	umask 022
 fi
 
+export LANG='en_US.UTF-8'
+export LC_COLLATE='C'
+export LC_TIME='en_DK.UTF-8'
+
 export EDITOR='vim'
 export PAGER='less'
 
