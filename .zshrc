@@ -429,6 +429,7 @@ case $OSTYPE in
 	*bsd* | darwin*) alias ls='CLICOLOR_FORCE=1 ls -G' ;;
 	*) alias ls='ls --color=always' ;;
 esac
+alias lg="${${"$(alias ls)"#*\'}%\'} --group-directories-first"
 alias la='ls -a'
 alias g='grep --color=always'
 alias l='less -cRS'
