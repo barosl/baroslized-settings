@@ -498,6 +498,10 @@ alias sshs="ssh '' -O stop -S"
 alias zc='zcat'
 alias apt-get='apt-get --no-install-recommends'
 alias rsy='rsync -avzh --delete --progress'
+alias ru='rustc'
+alias ci='cargo build'
+alias cu='cargo run'
+alias ct='cargo test'
 
 if [[ -n $DISPLAY ]]; then
 	alias e='gedit'
