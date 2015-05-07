@@ -6,6 +6,8 @@ DatabaseDir "/home/barosl/box/.sys/lib/vnstat"
 
 Interface "eth0"
 MaxBandwidth 1000
+BandwidthDetection 0
+BandwidthDetectionInterval 5
 
 DayFormat   "%x"
 MonthFormat "%b '%y"
