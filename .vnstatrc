@@ -32,12 +32,17 @@ TrafficlessDays 1
 LogFile "/home/barosl/box/.sys/lib/vnstat.log"
 PidFile "/home/barosl/box/.sys/lib/vnstat.pid"
 
+DaemonUser ""
+DaemonGroup ""
+
 UpdateInterval 30
 PollInterval 5
 SaveInterval 5
 OfflineSaveInterval 30
 SaveOnStatusChange 1
 UseLogging 1
+CreateDirs 1
+UpdateFileOwner 1
 
 # vnstati
 
