@@ -413,26 +413,27 @@ let g:haskell_indent_case = 4
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 filet off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 try
-	call vundle#rc()
+	call vundle#begin()
 catch
 	if confirm('Install Vundle?', "&Yes\n&No") == 1
-		!git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+		!git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 		call vundle#rc()
 		let s:init_vundle = 1
 	endif
 endtry
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " List of repositories
-Bundle 'zeis/vim-kolor'
-Bundle 'Lokaltog/powerline'
-Bundle 'tpope/vim-surround'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'zeis/vim-kolor'
+Plugin 'Lokaltog/powerline'
+Plugin 'tpope/vim-surround'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'kchmck/vim-coffee-script'
 
+call vundle#end()
 filet plugin indent on
 
 if exists('s:init_vundle')
