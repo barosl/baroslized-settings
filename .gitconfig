@@ -36,9 +36,9 @@
 	ss = stash show -p
 
 [user]
-	name = Barosl LEE
+	name = Barosl Lee
 	email = vcs@barosl.com
-	signingkey = Barosl LEE
+	signingkey = Barosl Lee
 
 [core]
 	pager = less -+$LESS -cRS
