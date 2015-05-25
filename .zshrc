@@ -502,6 +502,8 @@ alias ru='rustc'
 alias ci='cargo build'
 alias cu='cargo run'
 alias ct='cargo test'
+alias hi='cabal build'
+alias hu='cabal run'
 
 if [[ -n $DISPLAY ]]; then
 	alias e='gedit'
