@@ -114,7 +114,7 @@ prompt_vcs() {
 PROMPT='$(prompt_context)%{[38;5;231;48;5;31;1m%} %~ $(prompt_vcs)%{[m%} '
 RPROMPT='$(prompt_exit_status)%{[38;5;16;48;5;254m%} ⌚ %D{%H:%M:%S} %{[m%}'
 
-HISTSIZE=20000
+HISTSIZE=40000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 
