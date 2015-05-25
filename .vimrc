@@ -432,7 +432,7 @@ Plugin 'Lokaltog/powerline'
 Plugin 'tpope/vim-surround'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'wting/rust.vim'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 filet plugin indent on
