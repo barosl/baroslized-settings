@@ -474,9 +474,7 @@ alias py3='python3'
 alias py='py3'
 alias mp='mplayer'
 alias sc='screen'
-if command -v tmx >/dev/null; then alias tm='tmx'
-else alias tm='tmux'
-fi
+if command -v tmx >/dev/null; then alias tm='tmx'; fi
 alias p='ps -eo user,pid,ppid,%cpu,start,time,args --sort start_time'
 alias ki='kill'
 alias ka='killall'
