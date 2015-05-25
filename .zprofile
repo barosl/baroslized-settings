@@ -27,6 +27,9 @@ else
 	umask 022
 fi
 
+# Clear the environment variables pushed by a SSH client
+unset -m 'LANG' 'LC_*'
+
 export LANG='en_US.UTF-8'
 export LC_COLLATE='C.UTF-8'
 export LC_TIME='en_DK.UTF-8'
