@@ -262,6 +262,10 @@ if [[ -z $keys[C-Up] ]]; then
 	fi
 fi
 
+# Ubuntu 14.10 started to use the different key sequences
+keys[Home3]='^[[H'
+keys[End3]='^[[F'
+
 bindkey -e
 
 bindkey "$keys[Home]" beginning-of-line
@@ -286,6 +290,9 @@ bindkey "$keys[C-Left2]" backward-word
 bindkey "$keys[C-Right2]" forward-word
 bindkey "$keys[M-Enter2]" self-insert-unmeta
 bindkey "$keys[M-Delete2]" kill-word
+
+bindkey "$keys[Home3]" beginning-of-line
+bindkey "$keys[End3]" end-of-line
 
 ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;' # excludes '&|'
 
