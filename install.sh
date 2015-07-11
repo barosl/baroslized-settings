@@ -19,7 +19,7 @@ for file; do
     ln -s "$PWD/$file" "$HOME/$file"
 done
 
-if ! grep -Fxq '### baroslized settings ###' ~/.profile; then
+if [ -e ~/.profile ] && ! grep -Fxq '### baroslized settings ###' ~/.profile; then
     cp -ai ~/.profile ~/.profile.ori
     { echo; echo; echo '### baroslized settings ###'; echo '. ~/.baroslized-profile'; } >> ~/.profile
 fi
