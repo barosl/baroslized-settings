@@ -26,6 +26,7 @@
 	mg = merge
 	sb = submodule
 	bl = blame
+	child = "!f() { x=$(git log --pretty=%H --reverse --ancestry-path $1.. | head -n1); [ $x ] && git show $x; }; f"
 
 	cf = !sh -c 'git commit -m \"fixup! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
 	cs = !sh -c 'git commit -m \"squash! $(git log -1 --pretty='\\''%s'\\'' $@)\"' -
