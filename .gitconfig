@@ -61,3 +61,6 @@
 
 [pull]
 	rebase = true
+
+[credential]
+	helper = cache
