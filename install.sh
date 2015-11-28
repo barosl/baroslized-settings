@@ -14,6 +14,7 @@ set -- \
     .inputrc \
 
 [ ! -e $HOME/.ssh ] && mkdir $HOME/.ssh && chmod 700 $HOME/.ssh
+[ ! -e $HOME/.ssh/socks ] && mkdir $HOME/.ssh/socks
 
 for file; do
     ln -s "$PWD/$file" "$HOME/$file"
